@@ -28,6 +28,9 @@ Plug 'mattn/emmet-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 colorscheme gruvbox
@@ -54,3 +57,7 @@ let g:UltiSnipsSnippetsDir = '~/config/nvim/UltiSnips'
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
+let g:lightline = { 'colorscheme': 'wombat' }
+
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
