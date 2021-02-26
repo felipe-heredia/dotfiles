@@ -46,6 +46,11 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 
 nnoremap <c-p> :files<cr>
 nnoremap <c-f> :Ag<space>
+nnoremap <c-a> <esc>ggVG<cr>
+nnoremap <c-c> :%y+<cr>
 
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '~/config/nvim/UltiSnips'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
