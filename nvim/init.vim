@@ -54,8 +54,12 @@ nnoremap <c-c> :%y+<cr>
 
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '~/config/nvim/UltiSnips'
+
+" Ale Config
+let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+nnoremap <leader>fx :ALEFix<cr>
 
 let g:lightline = { 'colorscheme': 'wombat' }
 
