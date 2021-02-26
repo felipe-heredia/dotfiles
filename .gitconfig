@@ -1,20 +1,19 @@
 [init]
   defaultBranch = main
 
-[user]
-  email = felipe@felipesuri.com
-  name = felipesuri
-
 [core]
-  editor = nvim
+  editor = code
 
 [push]
   default = current
 
+[pull]
+  rebase = true
+
 [alias]
   ci = commit
   co = checkout
-  cm = checkout main
+  cm = checkout master
   cb = checkout -b
   st = status -sb
   sf = show --name-only
@@ -24,3 +23,6 @@
   unstage = reset HEAD --
   undo = checkout --
   rollback = reset --soft HEAD~1
+[user]
+  email = felipe@felipesuri.com
+  name = felipesuri
