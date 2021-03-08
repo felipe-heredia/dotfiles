@@ -2,16 +2,16 @@
   defaultBranch = main
 
 [core]
-  editor = code
+  editor = nvim
 
 [push]
   default = current
 
 [pull]
-  rebase = true
+  rebase = false
 
 [alias]
-  ci = commit
+  ci = commit -S
   co = checkout
   cm = checkout master
   cb = checkout -b
@@ -26,3 +26,4 @@
 [user]
   email = felipe@felipesuri.com
   name = felipesuri
+	signingkey = E18F168D39825FE20D9799501487322E19839002
