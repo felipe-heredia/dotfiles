@@ -1,3 +1,12 @@
+"
+"  ███████╗░██████╗
+"  ██╔════╝██╔════╝     felipesuri
+"  █████╗░░╚█████╗░	My blog: https://felipesuri.com
+"  ██╔══╝░░░╚═══██╗
+"  ██║░░░░░██████╔╝
+"  ╚═╝░░░░░╚═════╝░
+"
+
 call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
