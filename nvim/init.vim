@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
@@ -31,10 +32,16 @@ Plug 'leafOfTree/vim-vue-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
-call plug#end()
+Plug 'wakatime/vim-wakatime'
 
-colorscheme gruvbox
-set background=dark
+" Testes nos próximos dias
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'isRuslan/vim-es6'
+Plug 'zivyangll/git-blame.vim'
+Plug 'luochen1990/rainbow'
+Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+call plug#end()
 
 set hidden
 set number
@@ -56,12 +63,19 @@ let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '~/config/nvim/UltiSnips'
 
 " Ale Config
-let b:ale_fixers = ['prettier', 'eslint']
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_fixers = { 'vue': ['prettier'], 'javascript': ['prettier', 'eslint'] }
+let b:ale_sign_error = '❌'
+let b:ale_sign_warning = '⚠️'
 nnoremap <leader>fx :ALEFix<cr>
 
 let g:lightline = { 'colorscheme': 'wombat' }
 
 " Start NERDTree and leave the cursor in it.
 autocmd VimEnter * NERDTree
+
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+nnoremap <leader>bl :<C-u>call gitblame#echo()<CR>
+
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
