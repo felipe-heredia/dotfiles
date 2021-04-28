@@ -1,2 +1,4 @@
-nvim/plugged
-nvim/pack/themes
+# CONFIG
+.config/nvim/plugged
+.config/nvim/pack
+.config/nvim/.netrwhist
