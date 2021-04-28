@@ -6,6 +6,7 @@
 "  ██║░░░░░██████╔╝     https://gitlab.com/felipesuri
 "  ╚═╝░░░░░╚═════╝░
 "
+" My customized config for Neovim;
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
