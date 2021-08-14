@@ -25,20 +25,25 @@ Plug 'preservim/nerdtree'																					" NERDTree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     								" Highlighting NERDTree
 Plug 'ryanoasis/vim-devicons'                      								" Icons for Nerdtree
 Plug 'mileszs/ack.vim'																						" Ack
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'																			" CTRLP
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " @lintersAndHelpers
 
 Plug 'w0rp/ale'																										" ALE
 Plug 'sheerun/vim-polyglot' 																			" Polyglot
-Plug 'ncm2/ncm2'                     															" NCM2
-Plug 'ncm2/ncm2-bufword'																					" NCM2 bufoword
-Plug 'ncm2/ncm2-path'																							" NCM2 path
-Plug 'roxma/nvim-yarp'																						" Yarp
+"Plug 'ncm2/ncm2'                     															" NCM2
+"Plug 'ncm2/ncm2-bufword'																					" NCM2 bufoword
+"Plug 'ncm2/ncm2-path'																							" NCM2 path
+"Plug 'roxma/nvim-yarp'																						" Yarp
 Plug 'jiangmiao/auto-pairs'																				" Auto Pairs
 Plug 'mattn/emmet-vim'																						" Emmet
 Plug 'honza/vim-snippets'																					" Snippets
 Plug 'bronson/vim-trailing-whitespace' 														" Trailing WhiteSpace
 Plug 'zivyangll/git-blame.vim'																		" Git Blame
+Plug 'airblade/vim-gitgutter/'																		" GitGutter
+"Plug 'ycm-core/YouCompleteMe'
+"Plug 'ackyshake/VimCompletesMe'
 
 " @syntaxHighlightingAndColors
 
@@ -59,8 +64,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 call plug#end()
 
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"set completeopt=noinsert,menuone,noselect
 
 " Ale Config
 let g:ale_fixers = {
@@ -85,6 +90,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
+let g:NERDTreeIgnore = ['^node_modules$']
 
 " Add shortcut for Blame
 nnoremap <leader>bv :<C-u>call gitblame#echo()<CR>
@@ -135,10 +141,37 @@ set guioptions-=r  							"remove right-hand scroll bar
 set guioptions-=L  							"remove left-hand scroll bar
 "set guifont=SauceCodePro\ Nerd\ Font:h15
 "set guifont=Mononoki\ Nerd\ Font:h15
-set guifont=JetBrains\ Mono:h15
 
 let g:neovide_transparency = 0.95
 let g:vim_vue_plugin_use_scss = 1
 let g:vim_vue_plugin_use_sass = 1
 let g:vim_vue_plugin_highlight_vue_keyword = 1
-"let g:vim_vue_plugin_config.foldexpr = 1
+let g:ctrlp_custom_ignore = 'node_modules\|git'
+
+let g:vim_vue_plugin_config = {
+\ 'syntax': {
+\   'template': ['html'],
+\   'script': ['javascript'],
+\   'style': ['css', 'scss'],
+\ },
+\ 'foldexpr': 1,
+\}
+
+
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+nmap <leader>p :CtrlP<CR>
+map <leader>nt :NERDTreeToggle<Enter>
+map <leader>vs :split<Enter>
+
+let g:coc_global_extensions = [
+\ 'coc-snippets',
+\ 'coc-pairs',
+\ 'coc-eslint',
+\ 'coc-prettier',
+\ 'coc-json',
+\ 'coc-vetur',
+\]
+
