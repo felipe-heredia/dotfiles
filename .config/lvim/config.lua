@@ -3,21 +3,19 @@
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.builtin.terminal.active = true
-lvim.colorscheme = "onedarker"
--- lvim.colorscheme = "dracula"
+-- lvim.colorscheme = "onedarker"
+lvim.colorscheme = "omni"
 lvim.lang.vue.formatters = { { exe = "prettier" } }
 lvim.lang.typescript.formatters = { { exe = "eslint"}, { exe = "prettier" } }
 lvim.lang.javascript.formatters = { { exe = "eslint"}, { exe = "prettier" } }
 
-lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
-lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
-
 lvim.plugins = {
   {"dracula/vim"},
+  {"getomni/neovim"},
   {"p00f/nvim-ts-rainbow"},
   {"editorconfig/editorconfig-vim"},
-  {"mattn/emmet-vim"},
-  { "hail2u/vim-css3-syntax" },
+  { "mattn/emmet-vim" },
+  -- { "hail2u/vim-css3-syntax" },
   { 
     "luochen1990/rainbow",
     config = function()
@@ -34,20 +32,18 @@ lvim.plugins = {
     run = "yarn install --frozen-lockfile",
     config = function()
       vim.g.coc_global_extensions = {
+        "coc-pairs",
         "coc-discord-rpc",
         "coc-graphql",
-        "coc-highlight",
         "coc-markdownlint",
       }
     end,
   },
   {"wakatime/vim-wakatime"},
-  {"jiangmiao/auto-pairs"},
   {"ap/vim-css-color"},
   {
     "leafOfTree/vim-vue-plugin",
     config = function()
-      vim.g.vim_vue_plugin_use_scss = true
       vim.g.vim_vue_plugin_highlight_vue_keyword = true
       vim.g.vim_vue_plugin_config = {
         syntax = {
@@ -64,6 +60,10 @@ lvim.plugins = {
     event = "BufRead",
   },
   {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+  },
+  {
     "f-person/git-blame.nvim",
     event = "BufRead",
     config = function()
@@ -76,6 +76,28 @@ lvim.plugins = {
     event = "InsertEnter",
     config = function()
       require("nvim-ts-autotag").setup()
+    end,
+  },
+  {
+    "rmagatti/goto-preview",
+    config = function()
+    require('goto-preview').setup {
+      width = 120; -- Width of the floating window
+      height = 25; -- Height of the floating window
+      default_mappings = false; -- Bind default mappings
+      debug = false; -- Print debug information
+      opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
+      post_open_hook = nil; -- A function taking two arguments, a buffer and a window to be ran as a hook.
+    }
+    end
+  },
+  {
+    'wfxr/minimap.vim',
+    run = "cargo install --locked code-minimap",
+    config = function ()
+      vim.cmd ("let g:minimap_width = 10")
+      vim.cmd ("let g:minimap_auto_start = 1")
+      vim.cmd ("let g:minimap_auto_start_win_enter = 1")
     end,
   },
 }
