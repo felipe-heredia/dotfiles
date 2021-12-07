@@ -1,3 +1,6 @@
+local formatters = require "lvim.lsp.null-ls.formatters"
+local linters = require "lvim.lsp.null-ls.linters"
+
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
 lvim.format_on_save = true
@@ -5,18 +8,39 @@ lvim.lint_on_save = true
 lvim.builtin.terminal.active = true
 -- lvim.colorscheme = "onedarker"
 lvim.colorscheme = "omni"
-lvim.lang.vue.formatters = { { exe = "prettier" } }
-lvim.lang.typescript.formatters = { { exe = "eslint"}, { exe = "prettier" } }
-lvim.lang.javascript.formatters = { { exe = "eslint"}, { exe = "prettier" } }
+
+formatters.setup {
+  { exe = "prettier" },
+}
+
+linters.setup {
+  { exe = "eslint" },
+}
 
 lvim.plugins = {
   {"dracula/vim"},
   {"getomni/neovim"},
   {"p00f/nvim-ts-rainbow"},
   {"editorconfig/editorconfig-vim"},
-  { "mattn/emmet-vim" },
-  -- { "hail2u/vim-css3-syntax" },
-  { 
+  {"mattn/emmet-vim"},
+  {"kkvh/vim-docker-tools"},
+  {
+    "pantharshit00/vim-prisma",
+    config = function ()
+      vim.g.prism_colorshemes = {"dracula"}
+    end,
+  },
+  {
+    "andweeb/presence.nvim",
+    config = function()
+      vim.g.presence_main_image = "file"
+      vim.g.presence_neovim_image_text = "O único verdadeiro editor de texto"
+      vim.g.presence_enable_line_number = true
+    end,
+  },
+  -- {"isRuslan/vim-es6"},
+  { "hail2u/vim-css3-syntax" },
+  {
     "luochen1990/rainbow",
     config = function()
       vim.g.rainbow_active = true
@@ -24,19 +48,9 @@ lvim.plugins = {
   },
   {
     "npxbr/glow.nvim",
-    ft = {"markdown"}
-  },
-  {
-    "neoclide/coc.nvim",
-    branch = "master",
-    run = "yarn install --frozen-lockfile",
-    config = function()
-      vim.g.coc_global_extensions = {
-        "coc-pairs",
-        "coc-discord-rpc",
-        "coc-graphql",
-        "coc-markdownlint",
-      }
+    ft = {"markdown"},
+    config = function ()
+      vim.g.glow_binary_path = vim.env.HOME .. "/bin"
     end,
   },
   {"wakatime/vim-wakatime"},
@@ -44,6 +58,7 @@ lvim.plugins = {
   {
     "leafOfTree/vim-vue-plugin",
     config = function()
+      vim.g.vim_vue_plugin_use_scss = true
       vim.g.vim_vue_plugin_highlight_vue_keyword = true
       vim.g.vim_vue_plugin_config = {
         syntax = {
@@ -75,7 +90,10 @@ lvim.plugins = {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
     config = function()
-      require("nvim-ts-autotag").setup()
+      require("nvim-ts-autotag").setup({
+        autotag = { enable = true },
+        filetypes = { "html", "vue", "javascript", "javascriptreact", "typescriptreact" }
+      })
     end,
   },
   {
@@ -90,15 +108,6 @@ lvim.plugins = {
       post_open_hook = nil; -- A function taking two arguments, a buffer and a window to be ran as a hook.
     }
     end
-  },
-  {
-    'wfxr/minimap.vim',
-    run = "cargo install --locked code-minimap",
-    config = function ()
-      vim.cmd ("let g:minimap_width = 10")
-      vim.cmd ("let g:minimap_auto_start = 1")
-      vim.cmd ("let g:minimap_auto_start_win_enter = 1")
-    end,
   },
 }
 
