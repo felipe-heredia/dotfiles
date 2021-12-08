@@ -8,7 +8,6 @@ PROGRAMAS_PARA_INSTALAR=(
   discord
   flameshot
   firefox
-  firefox-developer-edition
   alacritty
   dbeaver
   galculator
