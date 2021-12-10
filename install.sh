@@ -58,6 +58,7 @@ YAY_PROGRAMAS=(
   stremio-beta
   lbry-app-bin
   lunarvim-git
+  grml-zsh-config
 )
 
 for programa in ${YAY_PROGRAMAS[@]}; do
