@@ -52,10 +52,12 @@ YAY_PROGRAMAS=(
   whatsapp-nativefier-dark
   insomnia-bin
   ttf-jetbrains-mono
+  nerd-fonts-complete
   ttf-roboto
   ttf-poppins
   stremio-beta
   lbry-app-bin
+  lunarvim-git
 )
 
 for programa in ${YAY_PROGRAMAS[@]}; do
@@ -75,16 +77,13 @@ cp .config/ ~/.config -r
 ## Configurando ZSH
 
 # Instalando Oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Instalando zinit
-#sh -c "$(curl -fsSL https://git.io/zinit-install)"
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
 # Instalando spaceship-prompt
-#git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-
-# Instalando Lunarvim
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
