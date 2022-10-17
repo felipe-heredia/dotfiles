@@ -147,7 +147,7 @@ SPACESHIP_CHAR_SUFFIX=" "
 source /usr/share/nvm/init-nvm.sh
 
 # Export Yarn Global
-export PATH="$PATH:$(yarn global bin)"
+export PATH="$PATH:$(yarn global bin):/home/felipesuri/.cargo/bin"
 
 # VPN Aliases
 alias start-vpn="sudo systemctl start wg-quick@wg0"
@@ -155,3 +155,4 @@ alias stop-vpn="sudo systemctl stop wg-quick@wg0"
 alias status-vpn="sudo wg show"
 
 neofetch
+### End of Zinit's installer chunk
