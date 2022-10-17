@@ -1,9 +1,10 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 set -e
 
 PROGRAMAS_PARA_INSTALAR=(
   git
   keepassxc
+  nextcloud-client
   telegram-desktop
   discord
   flameshot
@@ -12,13 +13,12 @@ PROGRAMAS_PARA_INSTALAR=(
   dbeaver
   galculator
   gnucash
-  minder
   gnome-boxes
   neovim
-  wireguard-tools
   zsh
   curl
   rust
+  fuse
 )
 
 ## Atualizando Sistema ##
@@ -49,16 +49,14 @@ done
 YAY_PROGRAMAS=(
   nvm
   spotify
-  whatsapp-nativefier-dark
   insomnia-bin
   ttf-jetbrains-mono
   nerd-fonts-complete
   ttf-roboto
   ttf-poppins
   stremio-beta
-  lbry-app-bin
-  lunarvim-git
   grml-zsh-config
+  zoho-mail-desktop
 )
 
 for programa in ${YAY_PROGRAMAS[@]}; do
@@ -71,9 +69,10 @@ for programa in ${YAY_PROGRAMAS[@]}; do
 done
 ## Configurando dotfiles
 
-cp .zshrc ~/.zshrc
 cp .gitconfig ~/.gitconfig
 cp .config/ ~/.config -r
+
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 ## Configurando ZSH
 
@@ -88,3 +87,5 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
+
+cp .zshrc ~/.zshrc

@@ -2,7 +2,7 @@
   defaultBranch = main
 
 [core]
-  editor = nvim
+  editor = lvim
 
 [push]
   default = current
@@ -24,8 +24,15 @@
   unstage = reset HEAD --
   undo = checkout --
   rollback = reset --soft HEAD~1
+  amend = !"f() { git commit --amend -m \"$1\"; git log --oneline -1; }; f"
 
 [user]
   email = felipe@felipesuri.com
   name = felipesuri
 	signingkey = E18F168D39825FE20D9799501487322E19839002
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
