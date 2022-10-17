@@ -19,6 +19,11 @@ PROGRAMAS_PARA_INSTALAR=(
   curl
   rust
   fuse
+  okular
+  pidgin
+  qbittorrent
+  steam
+  veracrypt
 )
 
 ## Atualizando Sistema ##
@@ -57,6 +62,11 @@ YAY_PROGRAMAS=(
   stremio-beta
   grml-zsh-config
   zoho-mail-desktop
+  visual-studio-code-bin
+  brave-beta-bin
+  legendary
+  dxvk-bin
+  minecraft-launcher
 )
 
 for programa in ${YAY_PROGRAMAS[@]}; do
