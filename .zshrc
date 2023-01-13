@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/felipesuri/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -11,7 +11,7 @@ export ZSH="/home/felipesuri/.oh-my-zsh"
 ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
+# Setting this variable when ZSH_THEME="archcraft"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -24,7 +24,7 @@ ZSH_THEME="spaceship"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -100,6 +100,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# On-demand rehash
+zshcache_time="$(date +%s%N)"
+
+autoload -Uz add-zsh-hook
+
+rehash_precmd() {
+  if [[ -a /var/cache/zsh/pacman ]]; then
+    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+    if (( zshcache_time < paccache_time )); then
+      rehash
+      zshcache_time="$paccache_time"
+    fi
+  fi
+}
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -118,41 +133,60 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
-LS_COLORS=$LS_COLORS:'ow=01;34:' ; export LS_COLORS
+add-zsh-hook -Uz precmd rehash_precmd
 
+if [[ "$USER" == "root" ]]; then
+  SPACESHIP_CHAR_SYMBOL="%(?:%{$fg_bold[red]%}%{$fg_bold[yellow]%}%{$fg_bold[red]%} :%{$fg_bold[red]%} )"
+else
+  SPACESHIP_CHAR_SYMBOL="%(?:%{$fg_bold[red]%}%{$fg_bold[green]%}%{$fg_bold[yellow]%} :%{$fg_bold[red]%} )"
+fi
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_USER_SHOW="always" # Shows System user name before directory name
+SPACESHIP_PACKAGE_SHOW_PRIVATE=true
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_FORMAT='%D{%H:%M}'
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
+  time          # Time stamps section
   dir           # Current directory section
-  host          # Hostname section
   git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
+  package       # Package version
+  node          # Node.js section
+  ruby          # Ruby section
+  rust          # Rust section
+  docker        # Docker section
+  aws           # Amazon Web Services section
   exec_time     # Execution time
   line_sep      # Line break
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
+  battery       # Battery level and status
+  jobs          # Backgound jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
 )
 
-SPACESHIP_USER_SHOW="always" # Shows System user name before directory name
+# omz
+alias zshconfig="lvim ~/.zshrc"
+alias ohmyzsh="lvim ~/.oh-my-zsh"
 
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-# SPACESHIP_PROMPT_SEPARATE_LINE=false # Make the prompt span across two lines
-# SPACESHIP_DIR_TRUNC=1 # Shows only the last directory folder name
+# ls
+alias l='ls -lh'
+alias ll='ls -lah'
+alias la='ls -A'
+alias lm='ls -m'
+alias lr='ls -R'
+alias lg='ls -l --group-directories-first'
 
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
+# git
+alias gcl='git clone --depth 1'
+alias gi='git init'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push origin main'
+alias myip='curl -s https://checkip.amazonaws.com'
+alias myhistory="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
 
 # NVM
 source /usr/share/nvm/init-nvm.sh
 
-# Export Yarn Global
-export PATH="$PATH:$(yarn global bin):/home/felipesuri/.cargo/bin"
-
-# VPN Aliases
-alias start-vpn="sudo systemctl start wg-quick@wg0"
-alias stop-vpn="sudo systemctl stop wg-quick@wg0"
-alias status-vpn="sudo wg show"
-
 neofetch
-### End of Zinit's installer chunk

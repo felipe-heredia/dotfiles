@@ -53,13 +53,13 @@ done
 
 YAY_PROGRAMAS=(
   nvm
-  spotify
+  #spotify
   insomnia-bin
   ttf-jetbrains-mono
   nerd-fonts-complete
   ttf-roboto
   ttf-poppins
-  stremio-beta
+  #stremio-beta
   grml-zsh-config
   zoho-mail-desktop
   visual-studio-code-bin
@@ -82,7 +82,7 @@ done
 cp .gitconfig ~/.gitconfig
 cp .config/ ~/.config -r
 
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+#bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 ## Configurando ZSH
 
@@ -98,4 +98,4 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
 
-cp .zshrc ~/.zshrc
+#cp .zshrc ~/.zshrc
