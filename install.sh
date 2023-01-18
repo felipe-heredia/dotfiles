@@ -11,8 +11,6 @@ PROGRAMAS_PARA_INSTALAR=(
   firefox
   alacritty
   dbeaver
-  galculator
-  gnucash
   gnome-boxes
   neovim
   zsh
@@ -24,6 +22,9 @@ PROGRAMAS_PARA_INSTALAR=(
   qbittorrent
   steam
   veracrypt
+  exa
+  btm
+  bandwhich
 )
 
 ## Atualizando Sistema ##
@@ -53,13 +54,13 @@ done
 
 YAY_PROGRAMAS=(
   nvm
-  #spotify
+  spotify
   insomnia-bin
   ttf-jetbrains-mono
   nerd-fonts-complete
   ttf-roboto
   ttf-poppins
-  #stremio-beta
+  stremio-beta
   grml-zsh-config
   zoho-mail-desktop
   visual-studio-code-bin
