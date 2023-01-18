@@ -170,12 +170,12 @@ alias zshconfig="lvim ~/.zshrc"
 alias ohmyzsh="lvim ~/.oh-my-zsh"
 
 # ls
-alias l='ls -lh'
-alias ll='ls -lah'
-alias la='ls -A'
-alias lm='ls -m'
-alias lr='ls -R'
-alias lg='ls -l --group-directories-first'
+alias l='exa -lh --icons'
+alias ll='exa -lah'
+alias la='exa -an --icons'
+alias lm='exa -m'
+alias lr='exa -R'
+alias lg='exa --grid --icons'
 
 # git
 alias gcl='git clone --depth 1'
@@ -183,8 +183,13 @@ alias gi='git init'
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push origin main'
+
+# others
+
 alias myip='curl -s https://checkip.amazonaws.com'
 alias myhistory="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
+alias monitor="btm"
+alias band="sudo bandwhich"
 
 # NVM
 source /usr/share/nvm/init-nvm.sh
