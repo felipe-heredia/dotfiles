@@ -15,6 +15,15 @@ lvim.plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
 }
 
 lvim.log.level = "warn"
@@ -24,10 +33,13 @@ lvim.colorscheme = "tokyonight"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
-lvim.keys.normal_mode["<C-q>"] = ":qa<cr>"
+lvim.keys.normal_mode = {
+  ["<C-s>"] = ":w<cr>",
+  ["<S-l>"] = ":BufferLineCycleNext<CR>",
+  ["<S-h>"] = ":BufferLineCyclePrev<CR>",
+  ["<C-p>"] = "<cmd>Telescope find_files<cr>",
+  ["<C-q>"] = ":qa<cr>"
+}
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
