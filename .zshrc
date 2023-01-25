@@ -175,7 +175,7 @@ alias ll='exa -lah'
 alias la='exa -an --icons'
 alias lm='exa -m'
 alias lr='exa -R'
-alias lg='exa --grid --icons'
+alias lg='exa --grid'
 
 # git
 alias gcl='git clone --depth 1'
@@ -183,6 +183,7 @@ alias gi='git init'
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push origin main'
+alias gs='git st'
 
 # others
 
