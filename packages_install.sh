@@ -25,6 +25,9 @@ PROGRAMAS_PARA_INSTALAR=(
   exa
   btm
   bandwhich
+  zathura
+  zathura-pdf-mupdf
+  cronie
 )
 
 ## Atualizando Sistema ##
@@ -45,10 +48,6 @@ done
 
 
 ## Instalndo ZSH
-#sudo pacman -S zsh 
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Instalando NVM
 
 ## Instalando Pacotes yay ##
 
@@ -80,11 +79,6 @@ for programa in ${YAY_PROGRAMAS[@]}; do
 done
 ## Configurando dotfiles
 
-cp .gitconfig ~/.gitconfig
-cp .config/ ~/.config -r
-
-#bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-
 ## Configurando ZSH
 
 # Instalando Oh-my-zsh
@@ -98,5 +92,3 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
-
-#cp .zshrc ~/.zshrc
