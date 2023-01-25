@@ -181,7 +181,7 @@ alias lg='exa --grid'
 alias gcl='git clone --depth 1'
 alias gi='git init'
 
-alias gst='git st'
+alias gs='git st'
 alias ga='git add'
 alias gaa='git add .'
 alias gc='git commit -m'
@@ -189,9 +189,9 @@ alias gc='git commit -m'
 alias gp='git push'
 alias gpl="git pull"
 
-alias gsa="git stash apply"
-alias gs="git stash"
-alias gsc="git stash clear"
+alias gsta="git stash apply"
+alias gst="git stash"
+alias gstc="git stash clear"
 
 # others
 
