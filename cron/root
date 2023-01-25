@@ -1,2 +1,2 @@
-00 17 * * * /usr/bin/pacman -Syu --noconfirm
+* */6 * * * /usr/bin/pacman -Syu --noconfirm
 
