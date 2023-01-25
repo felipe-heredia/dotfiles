@@ -1,0 +1,2 @@
+00 17 * * * /usr/bin/pacman -Syu --noconfirm
+
