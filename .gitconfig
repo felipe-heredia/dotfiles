@@ -30,9 +30,34 @@
   email = felipe@felipesuri.com
   name = felipesuri
 	signingkey = E18F168D39825FE20D9799501487322E19839002
+
 [gpg]
 	program = gpg
+
 [commit]
 	gpgSign = false
+
 [tag]
 	forceSignAnnotated = false
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+[color "branch"]
+    current = green bold
+    local = green
+    remote = red bold
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red
+[color "sh"]
+    branch = yellow

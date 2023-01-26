@@ -184,7 +184,7 @@ alias gi='git init'
 alias gs='git st'
 alias ga='git add'
 alias gaa='git add .'
-alias gc='git commit -m'
+alias gc='git ci -m'
 
 alias gp='git push'
 alias gpl="git pull"
@@ -204,3 +204,8 @@ alias band="sudo bandwhich"
 source /usr/share/nvm/init-nvm.sh
 
 neofetch
+
+# pnpm
+export PNPM_HOME="/home/felipesuri/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
