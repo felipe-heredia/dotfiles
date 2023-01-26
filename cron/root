@@ -1,2 +1,1 @@
-25 14 * * * /usr/bin/pacman -Syu --noconfirm
-
+30 */6 * * * /usr/bin/pacman -Syu --noconfirm
