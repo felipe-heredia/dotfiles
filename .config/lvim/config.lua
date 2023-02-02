@@ -8,6 +8,7 @@ lvim.plugins = {
   { "mattn/emmet-vim" },
   { "editorconfig/editorconfig-vim" },
   { "leafOfTree/vim-vue-plugin" },
+  { "manzeloth/live-server" },
 
   {
     "windwp/nvim-ts-autotag",
@@ -102,12 +103,28 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
 formatters.setup {
-  { exe = "prettierd", filetypes = { "vue", "javascript", "scss", "typescript" } },
+  {
+    exe = "prettierd",
+    filetypes = {
+      "vue",
+      "javascript",
+      --"scss"--,
+      "typescript"
+    }
+  },
   { name = "phpcbf", filetypes = { "php" } },
 }
 
 linters.setup {
-  { command = "eslint_d", filetypes = { "javascript", "vue", "scss", "typescript" } },
+  {
+    exe = "eslint_d",
+    filetypes = {
+      "vue",
+      "javascript",
+      --"scss"--,
+      "typescript"
+    }
+  },
 }
 
 -- generic LSP settings
