@@ -108,8 +108,9 @@ formatters.setup {
     filetypes = {
       "vue",
       "javascript",
-      --"scss"--,
-      "typescript"
+      "scss",
+      "typescript",
+      "html"
     }
   },
   { name = "phpcbf", filetypes = { "php" } },
