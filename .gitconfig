@@ -29,16 +29,16 @@
 [user]
   email = felipe@felipesuri.com
   name = felipesuri
-	signingkey = E18F168D39825FE20D9799501487322E19839002
+  signingkey = 6E90092B6C7E4B4C2DFABD062719A7073A580CED
 
 [gpg]
-	program = gpg
+  program = gpg
 
 [commit]
-	gpgSign = false
+  gpgSign = false
 
 [tag]
-	forceSignAnnotated = false
+  forceSignAnnotated = false
 
 [color]
     diff = auto
