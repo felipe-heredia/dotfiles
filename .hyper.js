@@ -20,7 +20,6 @@ module.exports = {
     backgroundColor: "#000",
     selectionColor: "rgba(248,28,229,0.3)",
     borderColor: "#333",
-    workingDirectory: "~/coding/",
     padding: "12px 14px",
     colors: {
       black: "#000000",
