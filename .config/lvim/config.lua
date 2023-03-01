@@ -11,6 +11,11 @@ lvim.plugins = {
   { "manzeloth/live-server" },
 
   {
+    "sindrets/diffview.nvim",
+    event = "BufRead",
+  },
+
+  {
     "windwp/nvim-ts-autotag",
     config = function()
       require("nvim-ts-autotag").setup()
