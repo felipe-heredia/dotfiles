@@ -1,1 +1,1 @@
-30 */6 * * * /usr/bin/pacman -Syu --noconfirm
+30 12 * * * /usr/bin/apt upgrade -y
