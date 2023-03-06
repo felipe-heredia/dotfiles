@@ -27,9 +27,9 @@
   amend = !"f() { git commit --amend -m \"$1\"; git log --oneline -1; }; f"
 
 [user]
-  email = felipe@felipesuri.com
+	email = felipe.heredia@starcompany.com.br
   name = felipesuri
-  signingkey = 6E90092B6C7E4B4C2DFABD062719A7073A580CED
+	signingkey = 56098DB41E02046B3C89DE7A80F62F3F3584E01B
 
 [gpg]
   program = gpg
