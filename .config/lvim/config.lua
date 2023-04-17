@@ -76,15 +76,13 @@ lvim.keys.normal_mode = {
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["gd"] = {
+  "<cmd>DiffviewOpen<cr>", "Git Diff"
+}
+
+lvim.builtin.which_key.mappings["gD"] = {
+  "<cmd>DiffviewClose<cr>", "Git Diff Close"
+}
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 
@@ -198,3 +196,4 @@ end, lvim.lsp.automatic_configuration.skipped_servers)
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+--
