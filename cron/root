@@ -1,1 +1,0 @@
-30 12 * * * /usr/bin/apt upgrade -y
