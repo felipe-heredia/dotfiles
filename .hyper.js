@@ -6,7 +6,7 @@
 module.exports = {
   config: {
     updateChannel: "stable",
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "JetBrainsMono Nerd Font",
     fontWeight: "normal",
     fontWeightBold: "bold",
@@ -20,7 +20,6 @@ module.exports = {
     backgroundColor: "#000",
     selectionColor: "rgba(248,28,229,0.3)",
     borderColor: "#333",
-    workingDirectory: "~/coding/",
     padding: "12px 14px",
     colors: {
       black: "#000000",
