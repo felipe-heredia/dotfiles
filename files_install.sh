@@ -22,9 +22,3 @@ ln -sf $path/.config/nvim $HOME/.config/nvim
 
 [ -d $HOME/.config/lvim ] && rm -rf $HOME/.config/lvim
 ln -sf $path/.config/lvim $HOME/.config/lvim
-
-# Var Directory
-[ ! -d /var ] && sudo mkdir -p /var/spool/cron
-[ ! -d /var/spool ] && sudo mkdir -p /var/spool/cron
-[ -d /var/spool/cron ] && rm -rf /var/spool/cron
-sudo ln -sf $path/cron /var/spool/cron
