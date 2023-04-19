@@ -196,9 +196,10 @@ alias gstc="git stash clear"
 # others
 
 alias myip='curl -s https://checkip.amazonaws.com'
-alias myhistory='history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10'
+alias myhistory="history | awk '{print \$2}' | sort | uniq -c | sort -rn | head -10"
 alias monitor="btm"
 alias band="sudo bandwhich"
+alias reload="source ~/.zshrc"
 
 # NVM
 #source /usr/share/nvm/init-nvm.sh
@@ -207,7 +208,10 @@ neofetch
 
 # pnpm
 export PNPM_HOME="/home/felipeheredia/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 export NVM_DIR="$HOME/.nvm"
