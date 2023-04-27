@@ -99,6 +99,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+if [ -f ~/.zsh_aliases ]; then
+  . ~/.zsh_aliases
+fi
 
 # On-demand rehash
 zshcache_time="$(date +%s%N)"
@@ -165,46 +170,8 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-# omz
-alias zshconfig="lvim ~/.zshrc"
-alias ohmyzsh="lvim ~/.oh-my-zsh"
-
-# ls
-alias l='exa -lh --icons'
-alias ll='exa -lah'
-alias la='exa -an --icons'
-alias lm='exa -m'
-alias lr='exa -R'
-alias lg='exa --grid'
-
-# git
-alias gcl='git clone --depth 1'
-alias gi='git init'
-
-alias gs='git st'
-alias ga='git add'
-alias gaa='git add .'
-alias gc='git ci -m'
-
-alias gp='git push'
-alias gpl="git pull"
-
-alias gsta="git stash apply"
-alias gst="git stash"
-alias gstc="git stash clear"
-
-# others
-
-alias myip='curl -s https://checkip.amazonaws.com'
-alias myhistory="history | awk '{print \$2}' | sort | uniq -c | sort -rn | head -10"
-alias monitor="btm"
-alias band="sudo bandwhich"
-alias reload="source ~/.zshrc"
-
 # NVM
 #source /usr/share/nvm/init-nvm.sh
-
-neofetch
 
 # pnpm
 export PNPM_HOME="/home/felipeheredia/.local/share/pnpm"
@@ -219,3 +186,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$PATH:/home/felipeheredia/.spicetify
+
+export VIEDITOR="lvim"
+
+nf
