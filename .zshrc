@@ -187,6 +187,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=$PATH:/home/felipeheredia/.spicetify
 
-export VIEDITOR="lvim"
-
 nf

@@ -42,3 +42,13 @@ alias reload="source ~/.zshrc"
 alias ..="cd .."
 alias nf="neofetch"
 alias ips="ip -c -br a"
+alias p="pgrep"
+alias filesize="du -sh * | sort -h"
+alias history="history | grep"
+alias mkdir="mkdir -pv"
+
+# docker
+
+alias dcup="docker compose up"
+alias dcdw="docker compose down"
+alias dclog="docker logs -f "
