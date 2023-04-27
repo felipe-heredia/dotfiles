@@ -1,3 +1,5 @@
+VIEDITOR="lvim"
+
 # omz
 
 alias zshconfig="$VIEDITOR ~/.zshrc"
@@ -7,10 +9,12 @@ alias aliasconf="$VIEDITOR ~/.zsh-aliases"
 
 # ls
 
+
 alias ls="exa --icons"
 alias l='exa -lh --icons'
 alias ll='exa -lah --icons'
 alias la='exa -an --icons'
+alias lsgi="exa -lha --git-ignore --icons"
 
 # git
 
@@ -33,7 +37,7 @@ alias gstc="git stash clear"
 
 alias myip='curl -s https://checkip.amazonaws.com'
 alias myhistory="history | awk '{print \$2}' | sort | uniq -c | sort -rn | head -10"
-alias monitor="btm --battery --mem_as_value"
+alias btm="btm --battery --mem_as_value"
 alias band="sudo bandwhich"
 alias reload="source ~/.zshrc"
 alias ..="cd .."
