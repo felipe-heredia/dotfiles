@@ -9,7 +9,6 @@ alias aliasconf="$VIEDITOR ~/.zsh-aliases"
 
 # ls
 
-
 alias ls="exa --icons"
 alias l='exa -lh --icons'
 alias ll='exa -lah --icons'
@@ -54,3 +53,12 @@ alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)
 alias dcup="docker compose up"
 alias dcdw="docker compose down"
 alias dclog="docker logs -f "
+
+
+function docker_migration_run () { docker exec "$1" npm run typeorm migration:run }
+function docker_migration_revert () { docker exec "$1" npm run typeorm migration:revert }
+function docker_migration () { docker exec "$1" npm run typeorm migration:generate --name $2 }
+
+alias dcmigrun="docker_migration_run"
+alias dcmigrev="docker_migration_rev"
+alias dcmig="docker_migration"
