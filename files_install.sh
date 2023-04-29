@@ -6,6 +6,7 @@ ln -sf $path/.gitconfig $HOME/.gitconfig
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/.zshenv $HOME/.zshenv
 ln -sf $path/.zshrc $HOME/.zshrc
+ln -sf $path/.zsh_aliases $HOME/.zsh_aliases
 ln -sf $path/.hyper.js $HOME/.hyper.js
 
 # Config directory

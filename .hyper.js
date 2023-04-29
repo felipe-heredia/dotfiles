@@ -6,7 +6,7 @@
 module.exports = {
   config: {
     updateChannel: "stable",
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: "JetBrainsMono Nerd Font",
     fontWeight: "normal",
     fontWeightBold: "bold",
