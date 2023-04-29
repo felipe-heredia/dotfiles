@@ -75,6 +75,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+if [ -f ~/.zsh_aliases ]; then
+  . ~/.zsh_aliases
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -89,15 +93,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # On-demand rehash
 zshcache_time="$(date +%s%N)"
@@ -164,47 +159,13 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-# omz
-alias zshconfig="lvim ~/.zshrc"
-alias ohmyzsh="lvim ~/.oh-my-zsh"
-
-# ls
-alias l='exa -lh --icons'
-alias ll='exa -lah'
-alias la='exa -an --icons'
-alias lm='exa -m'
-alias lr='exa -R'
-alias lg='exa --grid'
-
-# git
-alias gcl='git clone --depth 1'
-alias gi='git init'
-
-alias gs='git st'
-alias ga='git add'
-alias gaa='git add .'
-alias gc='git ci -m'
-
-alias gp='git push'
-alias gpl="git pull"
-
-alias gsta="git stash apply"
-alias gst="git stash"
-alias gstc="git stash clear"
-
-# others
-
-alias myip='curl -s https://checkip.amazonaws.com'
-alias myhistory='history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10'
-alias monitor="btm"
-alias band="sudo bandwhich"
 
 # NVM
 source /usr/share/nvm/init-nvm.sh
-
-neofetch
 
 # pnpm
 export PNPM_HOME="/home/felipesuri/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+nf

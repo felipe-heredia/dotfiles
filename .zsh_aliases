@@ -1,0 +1,64 @@
+VIEDITOR="lvim"
+
+# omz
+
+alias zshconfig="$VIEDITOR ~/.zshrc"
+alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
+alias gitconfig="$VIEDITOR ~/.gitconfig"
+alias aliasconf="$VIEDITOR ~/.zsh-aliases"
+
+# ls
+
+alias ls="exa --icons"
+alias l='exa -lh --icons'
+alias ll='exa -lah --icons'
+alias la='exa -an --icons'
+alias lsgi="exa -lha --git-ignore --icons"
+
+# git
+
+alias gcl='git clone --depth 1'
+alias gi='git init'
+
+alias gs='git st'
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git ci -m'
+
+alias gp='git push'
+alias gpl="git pull"
+
+alias gsta="git stash apply"
+alias gst="git stash"
+alias gstc="git stash clear"
+
+# others
+
+alias myip='curl -s https://checkip.amazonaws.com'
+alias myhistory="history | awk '{print \$2}' | sort | uniq -c | sort -rn | head -10"
+alias btm="btm --battery --mem_as_value"
+alias band="sudo bandwhich"
+alias reload="source ~/.zshrc"
+alias ..="cd .."
+alias nf="neofetch"
+alias ips="ip -c -br a"
+alias p="pgrep"
+alias filesize="du -sh * | sort -h"
+alias history="history | grep"
+alias mkdir="mkdir -pv"
+alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
+
+# docker
+
+alias dcup="docker compose up"
+alias dcdw="docker compose down"
+alias dclog="docker logs -f "
+
+
+function docker_migration_run () { docker exec "$1" npm run typeorm migration:run }
+function docker_migration_revert () { docker exec "$1" npm run typeorm migration:revert }
+function docker_migration () { docker exec "$1" npm run typeorm migration:generate --name $2 }
+
+alias dcmigrun="docker_migration_run"
+alias dcmigrev="docker_migration_rev"
+alias dcmig="docker_migration"
