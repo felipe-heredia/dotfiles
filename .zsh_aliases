@@ -5,7 +5,7 @@ VIEDITOR="lvim"
 alias zshconfig="$VIEDITOR ~/.zshrc"
 alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
 alias gitconfig="$VIEDITOR ~/.gitconfig"
-alias aliasconf="$VIEDITOR ~/.zsh-aliases"
+alias aliasconf="$VIEDITOR ~/.zsh_aliases"
 
 # ls
 
@@ -44,7 +44,6 @@ alias nf="neofetch"
 alias ips="ip -c -br a"
 alias p="pgrep"
 alias filesize="du -sh * | sort -h"
-alias history="history | grep"
 alias mkdir="mkdir -pv"
 alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
 
@@ -60,5 +59,5 @@ function docker_migration_revert () { docker exec "$1" npm run typeorm migration
 function docker_migration () { docker exec "$1" npm run typeorm migration:generate --name $2 }
 
 alias dcmigrun="docker_migration_run"
-alias dcmigrev="docker_migration_rev"
+alias dcmigrev="docker_migration_revert"
 alias dcmig="docker_migration"
