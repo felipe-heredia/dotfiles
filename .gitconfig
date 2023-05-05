@@ -8,7 +8,7 @@
   default = current
 
 [pull]
-  rebase = false
+	rebase = false
 
 [alias]
   ci = commit -S
