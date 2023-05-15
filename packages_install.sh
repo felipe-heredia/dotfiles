@@ -28,6 +28,20 @@ for nome_do_programa in "${PROGRAMAS_PARA_INSTALAR[@]}"; do
     fi
 done
 
+PROGRAMAS_FLATPAK=(
+  md.obsidian.Obsidian
+  com.spotify.Client
+)
+
+for nome_do_programa in "${PROGRAMAS_FLATPAK[@]}"; do
+    echo
+    if ! flatpak info "$nome_do_programa" >/dev/null 2>&1; then
+        flatpak install "$nome_do_programa" -y
+    else
+        echo "[FLATPAK INSTALADO] - $nome_do_programa"
+    fi
+done
+
 ## Instalando nvm
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -51,6 +65,6 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
 
-# Flatpak
+## Instalando Lvim
 
-flatpak install flathub com.spotify.Client
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
