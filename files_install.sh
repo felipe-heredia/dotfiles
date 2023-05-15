@@ -15,6 +15,9 @@ ln -sf $path/.hyper.js $HOME/.hyper.js
 [ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
 ln -sf $path/.config/alacritty $HOME/.config/alacritty
 
+[ -d $HOME/.themes ] && rm -rf $HOME/.themes
+ln -sf $path/.themes $HOME/.themes
+
 [ -d $HOME/.config/neofetch ] && rm -rf $HOME/.config/neofetch
 ln -sf $path/.config/neofetch $HOME/.config/neofetch
 
