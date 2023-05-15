@@ -91,6 +91,9 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.filters.dotfiles = true
+lvim.builtin.nvimtree.setup.filters.custom = {
+  "node_modules", "\\.cache", "dist"
+}
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true -- set relative numbered lines

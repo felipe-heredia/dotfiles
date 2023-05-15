@@ -4,79 +4,37 @@ set -e
 PROGRAMAS_PARA_INSTALAR=(
   git
   keepassxc
-  nextcloud-client
-  telegram-desktop
-  discord
   flameshot
   firefox
-  alacritty
   dbeaver
-  gnome-boxes
   neovim
   zsh
   curl
-  rust
-  fuse
-  okular
-  pidgin
-  qbittorrent
-  steam
-  veracrypt
-  exa
   btm
-  bandwhich
-  zathura
-  zathura-pdf-mupdf
-  cronie
+  insomnia
+  fonts-jetbrains-mono
+  fonts-roboto
 )
 
 ## Atualizando Sistema ##
-sudo pacman -Syu --noconfirm
+sudo apt update && sudo apt upgrade -y
 
-## Adicionando Suporte ao AUR ##
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-
-## Instalar programas
-for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  echo
-  if ! sudo pacman -Q $nome_do_programa; then # Só instala se já não estiver instalado
-    sudo pacman -S "$nome_do_programa" --noconfirm
-  else
-    echo "[INSTALADO] - $nome_do_programa"
-  fi
+for nome_do_programa in "${PROGRAMAS_PARA_INSTALAR[@]}"; do
+    echo
+    if ! dpkg -s "$nome_do_programa" >/dev/null 2>&1; then
+        sudo apt-get install "$nome_do_programa" -y
+    else
+        echo "[INSTALADO] - $nome_do_programa"
+    fi
 done
 
+## Instalando nvm
 
-## Instalndo ZSH
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
-## Instalando Pacotes yay ##
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-YAY_PROGRAMAS=(
-  nvm
-  spotify
-  insomnia-bin
-  ttf-jetbrains-mono
-  nerd-fonts-complete
-  ttf-roboto
-  ttf-poppins
-  stremio-beta
-  grml-zsh-config
-  zoho-mail-desktop
-  visual-studio-code-bin
-  brave-beta-bin
-  legendary
-  dxvk-bin
-  minecraft-launcher
-)
-
-for programa in ${YAY_PROGRAMAS[@]}; do
-  echo
-  if ! sudo pacman -Q $programa; then # Só instala se já não estiver instalado
-    yay -S "$programa"
-  else
-    echo "[INSTALADO] - $programa"
-  fi
-done
 ## Configurando dotfiles
 
 ## Configurando ZSH
@@ -92,3 +50,7 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
+
+# Flatpak
+
+flatpak install flathub com.spotify.Client
