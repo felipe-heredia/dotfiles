@@ -1,23 +1,43 @@
 #!/bin/bash
 set -e
 
+## Brave Browser
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
 PROGRAMAS_PARA_INSTALAR=(
   git
   keepassxc
   flameshot
   firefox
-  dbeaver
   neovim
   zsh
   curl
-  btm
-  insomnia
-  fonts-jetbrains-mono
   fonts-roboto
+  exa
+  neovim
+  python3-pip
+  curl
+  brave-browser
+  plank
+  postgresql
+  postgresql-client
+)
+
+PPAS=(
+  neovim-ppa/stable
+  ppa:rictz/docky
 )
 
 ## Atualizando Sistema ##
 sudo apt update && sudo apt upgrade -y
+
+for nome_do_ppa in "${PPAS[@]}"; do
+    sudo add-apt-repository "$nome_do_ppa" -y
+done
+
+sudo apt update
 
 for nome_do_programa in "${PROGRAMAS_PARA_INSTALAR[@]}"; do
     echo
@@ -31,6 +51,7 @@ done
 PROGRAMAS_FLATPAK=(
   md.obsidian.Obsidian
   com.spotify.Client
+  io.dbeaver.DBeaverCommunity
 )
 
 for nome_do_programa in "${PROGRAMAS_FLATPAK[@]}"; do
@@ -44,12 +65,10 @@ done
 
 ## Instalando nvm
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+[ ! -d $HOME/.nvm ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-## Configurando dotfiles
 
 ## Configurando ZSH
 
@@ -59,12 +78,20 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Instalando zinit
 sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
-# Instalando spaceship-prompt
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-
 ## Instalando Wallpapers ##
-git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
+[ ! -d $HOME/Pictures/wallpapers ] && mkdir git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
+
+## Rust
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ## Instalando Lvim
 
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+
+## Nerd Fonts
+path=$(pwd)
+
+if [ ! -d $path/nerd-fonts ] && git clone https://github.com/ryanoasis/nerd-fonts.git
+
+./nerd-fonts/install.sh
