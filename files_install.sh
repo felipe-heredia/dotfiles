@@ -26,3 +26,5 @@ ln -sf $path/.config/nvim $HOME/.config/nvim
 
 [ -d $HOME/.config/lvim ] && rm -rf $HOME/.config/lvim
 ln -sf $path/.config/lvim $HOME/.config/lvim
+
+dconf load /org/cinnamon/ < cinnamon_desktop_backup
