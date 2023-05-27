@@ -17,7 +17,7 @@ alias lsgi="exa -lha --git-ignore --icons"
 
 # git
 
-alias gcl='git clone --depth 1'
+alias gcl='git clone'
 alias gi='git init'
 
 alias gs='git st'
