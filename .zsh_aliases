@@ -18,6 +18,8 @@ alias lsgi="exa -lha --git-ignore --icons"
 # git
 
 alias gcl='git clone'
+alias gcld='git clone --depth 1'
+alias gud='git fetch --unshallow'
 alias gi='git init'
 
 alias gs='git st'
@@ -31,6 +33,8 @@ alias gpl="git pull"
 alias gsta="git stash apply"
 alias gst="git stash"
 alias gstc="git stash clear"
+
+alias gvc='git verify-commit HEAD~1'
 
 # others
 
