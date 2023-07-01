@@ -35,6 +35,23 @@ alias gst="git stash"
 alias gstc="git stash clear"
 
 alias gvc='git verify-commit HEAD~1'
+alias gsb='git branch --no-contains=main --no-contains=develop'
+
+function git_branch_starts_clear () { 
+ local branches=$(gsb | grep "$1")
+
+  if [ -z "$branches" ]; then
+    echo "No branches found starting with '$1'."
+    echo ""
+    echo "--- List all branches --"
+    gsb | awk '{print $1}'
+  else
+    echo "Deleting branches starting with '$1':"
+    echo "$branches" | xargs git branch -D
+  fi
+}
+
+alias gbc='git_branch_starts_clear'
 
 # others
 
