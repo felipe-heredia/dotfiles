@@ -8,7 +8,6 @@ lvim.plugins = {
   { "mattn/emmet-vim" },
   { "editorconfig/editorconfig-vim" },
   { "leafOfTree/vim-vue-plugin" },
-  { "manzeloth/live-server" },
 
   {
     "sindrets/diffview.nvim",
