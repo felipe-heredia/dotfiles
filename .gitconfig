@@ -2,7 +2,7 @@
   defaultBranch = main
 
 [core]
-  editor = lvim
+  editor = nvim
 
 [push]
   default = current
@@ -35,7 +35,7 @@
 	program = gpg
 
 [commit]
-	gpgSign = false
+	gpgSign = true
 
 [tag]
 	forceSignAnnotated = false
