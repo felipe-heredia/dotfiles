@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+#ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME="archcraft"
@@ -129,12 +129,6 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 
 add-zsh-hook -Uz precmd rehash_precmd
 
-if [[ "$USER" == "root" ]]; then
-  SPACESHIP_CHAR_SYMBOL="%(?:%{$fg_bold[red]%}%{$fg_bold[yellow]%}%{$fg_bold[red]%} :%{$fg_bold[red]%} )"
-else
-  SPACESHIP_CHAR_SYMBOL="%(?:%{$fg_bold[red]%}%{$fg_bold[green]%}%{$fg_bold[yellow]%} :%{$fg_bold[red]%} )"
-fi
-
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always" # Shows System user name before directory name
 SPACESHIP_PACKAGE_SHOW_PRIVATE=true
@@ -159,13 +153,18 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-
-# NVM
-source /usr/share/nvm/init-nvm.sh
-
-# pnpm
-export PNPM_HOME="/home/felipesuri/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+if [[ "$USER" == "root" ]]; then
+  SPACESHIP_CHAR_SYMBOL="%(?:%{$fg_bold[red]%}%{$fg_bold[yellow]%}%{$fg_bold[red]%} :%{$fg_bold[red]%} )"
+else
+  SPACESHIP_CHAR_SYMBOL="%(?:%{$fg_bold[red]%}%{$fg_bold[green]%}%{$fg_bold[yellow]%} :%{$fg_bold[red]%} )"
+fi
 
 nf
+
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+zinit light spaceship-prompt/spaceship-prompt
