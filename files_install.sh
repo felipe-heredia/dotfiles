@@ -21,10 +21,7 @@ ln -sf $path/.themes $HOME/.themes
 [ -d $HOME/.config/neofetch ] && rm -rf $HOME/.config/neofetch
 ln -sf $path/.config/neofetch $HOME/.config/neofetch
 
-[ -d $HOME/.config/nvim ] && rm -rf $HOME/.config/nvim
-ln -sf $path/.config/nvim $HOME/.config/nvim
-
-[ -d $HOME/.config/lvim ] && rm -rf $HOME/.config/lvim
-ln -sf $path/.config/lvim $HOME/.config/lvim
+[ -d $HOME/.config/.zsh ] && rm -rf $HOME/.config/.zsh
+ln -sf $path/.config/.zsh $HOME/.config/.zsh
 
 dconf load /org/cinnamon/ < cinnamon_desktop_backup

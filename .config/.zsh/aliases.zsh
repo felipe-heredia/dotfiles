@@ -1,4 +1,4 @@
-VIEDITOR="lvim"
+VIEDITOR="nvim"
 
 # omz
 
@@ -38,7 +38,7 @@ alias gvc='git verify-commit HEAD~1'
 alias gsb='git branch --no-contains=main --no-contains=develop'
 
 function git_branch_starts_clear () { 
- local branches=$(gsb | grep "$1")
+  local branches=$(gsb | grep "$1")
 
   if [ -z "$branches" ]; then
     echo "No branches found starting with '$1'."
