@@ -5,7 +5,7 @@ command_timeout = 1000                 # Change command timeout from 500 to 1000
 format = """$username $env_var $all""" # Add custom formatting before other stuff
 
 # Add color palette
-palette = "thanos"
+palette = "tokyonight"
 
 [palettes.thanos]
   space = "#00A1E4"
@@ -17,16 +17,30 @@ palette = "thanos"
   supernova = "#F8F8F0"
   mind = "#FFE900"
 
+  magneta = "#bb9af7"
+  red = "#f7768e"
+  yellow = "#e0af68"
+  green = "#9ece6a"
+  bermuda = "#73daca"
+  charlote = "#b4f9f8"
+
+[palettes.tokyonight]
+  magneta = "#bb9af7"
+  red = "#f7768e"
+  yellow = "#e0af68"
+  green = "#9ece6a"
+  bermuda = "#73daca"
+  charlote = "#b4f9f8"
 
 # Drop ugly default prompt characters
 [character]
-  success_symbol = '[](bold red)[](bold yellow)[](bold green)'
+  success_symbol = '[](bold magneta)[](bold yellow)[](bold green)'
   error_symbol = '[](bold red)'
 
 # Shows current username
 [username]
   format = '[$user]($style)'
-  style_user = "space bold"
+  style_user = "magneta bold"
   style_root = "soul bold"
   disabled = false
   show_always = true
@@ -34,19 +48,19 @@ palette = "thanos"
 # ---
 # Shows an icon depending on what device it is running on
 [env_var.STARSHIP_DEVICE]
-  format = 'on [$env_value ](bold soul)'
+  format = 'on [$env_value ](bold bermuda)'
   variable = "STARSHIP_DEVICE"
   disabled = false
 
 # Shows the hostname
 [hostname]
   ssh_only = false
-  format = "[$hostname](bold soul) "
+  format = "[$hostname](bold bermuda) "
   disabled = false
 
 # Shows an icon depending on what distro it is running on
 [env_var.STARSHIP_DISTRO]
-  format = '[ 󱕆  $env_value](bold soul)'
+  format = '[ 󱕆  $env_value ](bold bermuda)'
   variable = "STARSHIP_DISTRO"
   disabled = false
 
@@ -64,12 +78,12 @@ palette = "thanos"
   format = "via [$symbol$branch]($style)"
   # truncation_length = 4
   truncation_symbol = "…/"
-  style = "bold green"
+  style = "bold yellow"
 
 # Shows current git status
 [git_status]
   format = '[$all_status$ahead_behind]($style) '
-  style = "bold green"
+  style = "bold yellow"
   conflicted = "  "
   untracked = "  "
   ahead = " ⇡${count}"
@@ -77,7 +91,7 @@ palette = "thanos"
   behind = " ⇣${count}"
   stashed = " "
   modified = "  "
-  staged = '[ 󱅃 \($count\)](green)'
+  staged = '[ 󱅃 \($count\)](yellow)'
   renamed = "  "
   deleted = "  "
 
