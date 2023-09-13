@@ -1,6 +1,4 @@
-VIEDITOR="lvim"
-
-# omz
+VIEDITOR="nvim"
 
 alias zshconfig="$VIEDITOR ~/.zshrc"
 alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
