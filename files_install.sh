@@ -6,8 +6,6 @@ ln -sf $path/.gitconfig $HOME/.gitconfig
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/.zshenv $HOME/.zshenv
 ln -sf $path/.zshrc $HOME/.zshrc
-ln -sf $path/.zsh_aliases $HOME/.zsh_aliases
-ln -sf $path/.hyper.js $HOME/.hyper.js
 
 # Config directory
 [ ! -d $HOME/.config ] && mkdir $HOME/.config
@@ -24,8 +22,11 @@ ln -sf $path/.config/nvim $HOME/.config/nvim
 [ -d $HOME/.config/lvim ] && rm -rf $HOME/.config/lvim
 ln -sf $path/.config/lvim $HOME/.config/lvim
 
+[ -d $HOME/.config/.zsh ] && rm -rf $HOME/.config/.zsh
+ln -sf $path/.config/.zsh $HOME/.config/.zsh
+
 # Var Directory
-[ ! -d /var ] && sudo mkdir -p /var/spool/cron
-[ ! -d /var/spool ] && sudo mkdir -p /var/spool/cron
-[ -d /var/spool/cron ] && rm -rf /var/spool/cron
-sudo ln -sf $path/cron /var/spool/cron
+#[ ! -d /var ] && sudo mkdir -p /var/spool/cron
+#[ ! -d /var/spool ] && sudo mkdir -p /var/spool/cron
+#[ -d /var/spool/cron ] && rm -rf /var/spool/cron
+#sudo ln -sf $path/cron /var/spool/cron
