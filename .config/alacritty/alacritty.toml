@@ -1,6 +1,17 @@
 import = ["/home/felipeheredia/.config/alacritty/fonts.toml"]
 live_config_reload = true
 
+[window]
+opacity = 0.95
+
+[window.padding]
+x = 18
+y = 16
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
 [colors.bright]
 black = "0x444b6a"
 blue = "0x7da6ff"
