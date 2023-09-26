@@ -7,6 +7,7 @@ plugins=(
   git
   node
   npm
+  nvm
   web-search
   sudo
   copypath
