@@ -53,7 +53,7 @@ palette = "thanos"
 # Shows current directory
 [directory]
   truncation_length = 2
-  home_symbol = "  ~ "
+  home_symbol = "  ~"
   read_only_style = "197"
   read_only = "  "
   format = "at [$path]($style)[$read_only]($read_only_style) "
