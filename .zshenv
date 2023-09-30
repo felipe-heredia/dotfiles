@@ -7,3 +7,6 @@ export PATH="$PATH:$GO_BIN:$NVIM_PATH:$PNPM_HOME"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+### "nvim" as manpager
+export MANPAGER="nvim +Man!"
