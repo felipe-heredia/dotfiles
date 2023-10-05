@@ -8,6 +8,8 @@ plugins=(
   git
   node
   npm
+  docker
+  docker-compose
   web-search
   sudo
   copypath
@@ -15,6 +17,7 @@ plugins=(
   copybuffer
   history
   ubuntu
+  tmux
 )
 
 zshcache_time="$(date +%s%N)"
