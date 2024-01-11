@@ -2,29 +2,37 @@
 path=$(pwd)
 
 # Home directory
-ln -sf $path/.gitconfig $HOME/.gitconfig
-ln -sf $path/.zprofile $HOME/.zprofile
-ln -sf $path/.zshenv $HOME/.zshenv
-ln -sf $path/.zshrc $HOME/.zshrc
-ln -sf $path/.config/vimrc $HOME/.vimrc
+ln -sf $path/gitconfig $HOME/.gitconfig
+ln -sf $path/zshenv $HOME/.zshenv
+ln -sf $path/zshrc $HOME/.zshrc
+ln -sf $path/hyper.js $HOME/.hyper.js
 
 # Config directory
-[ ! -d $HOME/.config ] && mkdir $HOME/.config
 
-[ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
-ln -sf $path/.config/alacritty $HOME/.config/alacritty
+config_directory="config"
+global_config_directory=".config"
 
-[ -d $HOME/.config/neofetch ] && rm -rf $HOME/.config/neofetch
-ln -sf $path/.config/neofetch $HOME/.config/neofetch
+ln -sf $path/$config_directory/vimrc $HOME/.vimrc
 
-[ -d $HOME/.config/nvim ] && rm -rf $HOME/.config/nvim
-ln -sf $path/.config/nvim $HOME/.config/nvim
+# Config directory
+[ ! -d $HOME/$global_config_directory ] && mkdir $HOME/$global_config_directory
 
-[ -d $HOME/.config/lvim ] && rm -rf $HOME/.config/lvim
-ln -sf $path/.config/lvim $HOME/.config/lvim
+ln -sf $path/$config_directory/starship.toml $HOME/$global_config_directory/starship.toml
 
-[ -d $HOME/.config/.zsh ] && rm -rf $HOME/.config/.zsh
-ln -sf $path/.config/.zsh $HOME/.config/.zsh
+[ -d $HOME/$global_config_directory/alacritty ] && rm -rf $HOME/$global_config_directory/alacritty
+ln -sf $path/$config_directory/alacritty $HOME/$global_config_directory/alacritty
+
+[ -d $HOME/$global_config_directory/neofetch ] && rm -rf $HOME/$global_config_directory/neofetch
+ln -sf $path/$config_directory/neofetch $HOME/$global_config_directory/neofetch
+
+[ -d $HOME/$global_config_directory/nvim ] && rm -rf $HOME/$global_config_directory/nvim
+ln -sf $path/$config_directory/nvim $HOME/$global_config_directory/nvim
+
+[ -d $HOME/$global_config_directory/lvim ] && rm -rf $HOME/$global_config_directory/lvim
+ln -sf $path/$config_directory/lvim $HOME/$global_config_directory/lvim
+
+[ -d $HOME/$global_config_directory/.zsh ] && rm -rf $HOME/$global_config_directory/.zsh
+ln -sf $path/$config_directory/zsh $HOME/$global_config_directory/.zsh
 
 # Var Directory
 #[ ! -d /var ] && sudo mkdir -p /var/spool/cron
