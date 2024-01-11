@@ -6,6 +6,7 @@ ln -sf $path/.gitconfig $HOME/.gitconfig
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/.zshenv $HOME/.zshenv
 ln -sf $path/.zshrc $HOME/.zshrc
+ln -sf $path/.config/vimrc $HOME/.vimrc
 
 # Config directory
 [ ! -d $HOME/.config ] && mkdir $HOME/.config
