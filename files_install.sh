@@ -1,16 +1,20 @@
 #!/bin/sh
 path=$(pwd)
+config_directory="config"
+global_config_directory=".config"
 
 # Home directory
 ln -sf $path/gitconfig $HOME/.gitconfig
 ln -sf $path/zshenv $HOME/.zshenv
 ln -sf $path/zshrc $HOME/.zshrc
 ln -sf $path/hyper.js $HOME/.hyper.js
+ln -sf $path/$config_directory/tmux/tmux.conf $HOME/.tmux.conf
+
+
+[ -d $HOME/.tmux ] && rm -rf $HOME/.tmux
+ln -sf $path/$config_directory/tmux $HOME/.tmux
 
 # Config directory
-
-config_directory="config"
-global_config_directory=".config"
 
 ln -sf $path/$config_directory/vimrc $HOME/.vimrc
 

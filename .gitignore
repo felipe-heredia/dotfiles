@@ -51,3 +51,6 @@ plugin/
 spell/en.utf-8.add.spl
 
 yay
+
+# Tmux
+config/tmux/plugins/*
