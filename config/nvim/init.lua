@@ -15,3 +15,7 @@ vim.opt.clipboard = "unnamedplus"
 
 require("vim-options")
 require("lazy").setup("plugins")
+
+vim.cmd[[hi Normal ctermbg=NONE guibg=NONE]]
+vim.cmd[[hi NormalNC ctermbg=NONE guibg=NONE]]
+vim.cmd[[hi VertSplit ctermbg=NONE guibg=NONE]]
