@@ -1,20 +1,18 @@
 #!/bin/sh
 path=$(pwd)
-config_directory="config"
-global_config_directory=".config"
 
 # Home directory
 ln -sf $path/gitconfig $HOME/.gitconfig
 ln -sf $path/zshenv $HOME/.zshenv
 ln -sf $path/zshrc $HOME/.zshrc
 ln -sf $path/hyper.js $HOME/.hyper.js
-ln -sf $path/$config_directory/tmux/tmux.conf $HOME/.tmux.conf
 
 
-[ -d $HOME/.tmux ] && rm -rf $HOME/.tmux
-ln -sf $path/$config_directory/tmux $HOME/.tmux
 
 # Config directory
+
+config_directory="config"
+global_config_directory=".config"
 
 ln -sf $path/$config_directory/vimrc $HOME/.vimrc
 
@@ -35,8 +33,11 @@ ln -sf $path/$config_directory/nvim $HOME/$global_config_directory/nvim
 [ -d $HOME/$global_config_directory/lvim ] && rm -rf $HOME/$global_config_directory/lvim
 ln -sf $path/$config_directory/lvim $HOME/$global_config_directory/lvim
 
-[ -d $HOME/$global_config_directory/.zsh ] && rm -rf $HOME/$global_config_directory/.zsh
-ln -sf $path/$config_directory/zsh $HOME/$global_config_directory/.zsh
+[ -d $HOME/$global_config_directory/zsh ] && rm -rf $HOME/$global_config_directory/zsh
+ln -sf $path/$config_directory/zsh $HOME/$global_config_directory/zsh
+
+[ -d $HOME/.tmux ] && rm -rf $HOME/.tmux
+ln -sf $path/$config_directory/tmux $HOME/$global_config_directory/tmux
 
 # Var Directory
 #[ ! -d /var ] && sudo mkdir -p /var/spool/cron
