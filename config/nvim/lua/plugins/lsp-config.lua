@@ -25,4 +25,10 @@ return {
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
     end,
   },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require('symbols-outline').setup()
+    end
+  }
 }
