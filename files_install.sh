@@ -10,18 +10,25 @@ ln -sf $path/.zshrc $HOME/.zshrc
 ln -sf $path/.hyper.js $HOME/.hyper.js
 
 # Config directory
-[ ! -d $HOME/.config ] && mkdir $HOME/.config
 
-[ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
-ln -sf $path/.config/alacritty $HOME/.config/alacritty
+CONFIG_DIRECTORY="config"
+GLOBAL_CONFIG_DIRECTORY=".config"
+
+[ ! -d $HOME/$GLOBAL_CONFIG_DIRECTORY ] && mkdir $HOME/$GLOBAL_CONFIG_DIRECTORY
+
+[ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/alacritty ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/alacritty
+ln -sf path/$CONFIG_DIRECTORY/alacritty $HOME/$GLOBAL_CONFIG_DIRECTORY/alacritty
 
 [ -d $HOME/.themes ] && rm -rf $HOME/.themes
 ln -sf $path/.themes $HOME/.themes
 
-[ -d $HOME/.config/neofetch ] && rm -rf $HOME/.config/neofetch
-ln -sf $path/.config/neofetch $HOME/.config/neofetch
+[ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch
+ln -sf path/$CONFIG_DIRECTORY/neofetch $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch
 
-[ -d $HOME/.config/.zsh ] && rm -rf $HOME/.config/.zsh
-ln -sf $path/.config/.zsh $HOME/.config/.zsh
+[ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/.zsh ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/.zsh
+ln -sf path/$CONFIG_DIRECTORY/.zsh $HOME/$GLOBAL_CONFIG_DIRECTORY/.zsh
+
+[ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/.tmux ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/.tmux
+ln -sf path/$CONFIG_DIRECTORY/tmux $HOME/$GLOBAL_CONFIG_DIRECTORY/tmux
 
 dconf load /org/cinnamon/ < cinnamon_desktop_backup
