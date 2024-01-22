@@ -50,3 +50,6 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.shiftwidth = 2
 vim.tabstop = 2
+
+vim.opt.foldmethod = "indent"
+vim.opt.foldcolumn = "1"
