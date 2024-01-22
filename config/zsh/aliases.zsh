@@ -7,11 +7,11 @@ alias aliasconf="$VIEDITOR ~/.zsh-aliases"
 
 # ls
 
-alias ls="exa --icons"
-alias l='exa -lh --icons'
-alias ll='exa -lah --icons'
-alias la='exa -an --icons'
-alias lsgi="exa -lha --git-ignore --icons"
+alias ls="eza --icons"
+alias l='eza -lh --icons'
+alias ll='eza -lah --icons'
+alias la='eza -an --icons'
+alias lsgi="eza -lha --git-ignore --icons"
 
 # git
 
@@ -35,7 +35,7 @@ alias gstc="git stash clear"
 alias gvc='git verify-commit HEAD~1'
 alias gsb='git branch --no-contains=main --no-contains=develop'
 
-function git_branch_starts_clear () { 
+function git_branch_starts_clear () {
  local branches=$(gsb | grep "$1")
 
   if [ -z "$branches" ]; then
