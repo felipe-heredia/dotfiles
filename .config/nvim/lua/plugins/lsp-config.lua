@@ -1,8 +1,39 @@
 return {
   {
+    "mhartington/formatter.nvim",
+    event = "VeryLazy",
+    config = function()
+      local formatter = require("formatter")
+
+      formatter.setup({
+        logging = true,
+        log_level = vim.log.levels.WARN,
+        filetype = {
+          javascript = {
+            require("formatter.filetypes.javascript").prettier,
+          },
+          typescript = {
+            require("formatter.filetypes.typescript").prettier,
+          },
+          lua = {
+            require("formatter.filetypes.lua").stylua,
+          },
+          ["*"] = {
+            require("formatter.filetypes.any").remove_trailing_whitespace,
+          },
+        },
+      })
+    end,
+  },
+  {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup()
+      require("mason").setup({
+        ensure_installed = {
+          "prettierd",
+          "eslint_d",
+        },
+      })
     end,
   },
   {
@@ -28,7 +59,7 @@ return {
   {
     "simrat39/symbols-outline.nvim",
     config = function()
-      require('symbols-outline').setup()
-    end
-  }
+      require("symbols-outline").setup()
+    end,
+  },
 }
