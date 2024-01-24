@@ -2,7 +2,7 @@
   defaultBranch = main
 
 [core]
-  editor = lvim
+  editor = nvim
 
 [push]
   default = current
