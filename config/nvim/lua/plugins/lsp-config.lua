@@ -10,10 +10,10 @@ return {
         log_level = vim.log.levels.WARN,
         filetype = {
           javascript = {
-            require("formatter.filetypes.javascript").prettier,
+            require("formatter.filetypes.javascript").prettierd,
           },
           typescript = {
-            require("formatter.filetypes.typescript").prettier,
+            require("formatter.filetypes.typescript").prettierd,
           },
           lua = {
             require("formatter.filetypes.lua").stylua,
