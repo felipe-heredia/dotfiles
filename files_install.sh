@@ -36,7 +36,7 @@ ln -sf $path/$config_directory/lvim $HOME/$global_config_directory/lvim
 [ -d $HOME/$global_config_directory/zsh ] && rm -rf $HOME/$global_config_directory/zsh
 ln -sf $path/$config_directory/zsh $HOME/$global_config_directory/zsh
 
-[ -d $HOME/.tmux ] && rm -rf $HOME/.tmux
+[ -d $HOME/$global_config_directory/tmux ] && rm -rf $HOME/$global_config_directory/tmux
 ln -sf $path/$config_directory/tmux $HOME/$global_config_directory/tmux
 
 # Var Directory
