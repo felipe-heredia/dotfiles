@@ -1,3 +1,3 @@
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  command = "FormatWriteLock"
+  command = "FormatWriteLock",
 })
