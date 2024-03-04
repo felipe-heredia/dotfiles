@@ -23,7 +23,7 @@ alias gi='git init'
 alias gs='git st'
 alias ga='git add'
 alias gaa='git add .'
-alias gc='git ci -m'
+alias gc='git ci'
 
 alias gp='git push'
 alias gpl="git pull"
