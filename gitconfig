@@ -15,6 +15,7 @@
   co = checkout
   cm = checkout main
   cd = checkout develop
+  cs = checkout sandbox
   cb = checkout -b
   st = status -sb
   sf = show --name-only
