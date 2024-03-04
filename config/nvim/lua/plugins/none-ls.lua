@@ -11,10 +11,11 @@ return {
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.eslint_d,
 
-        null_ls.builtins.formatting.eslint_d.with({ extra_filetypes = { "astro" } }),
+        -- null_ls.builtins.formatting.eslint_d.with({ extra_filetypes = { "astro" } }),
       },
     })
 
     vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format file" })
+    vim.keymap.set("n", "<leader>ga", ":lua Format_astro()<CR>", { desc = "Format astro file" })
   end,
 }
