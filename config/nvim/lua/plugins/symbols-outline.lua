@@ -1,6 +1,8 @@
 return {
-  "simrat39/symbols-outline.nvim",
+  "hedyhli/outline.nvim",
   config = function()
-    require("symbols-outline").setup()
+    vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+
+    require("outline").setup()
   end,
 }
