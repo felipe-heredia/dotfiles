@@ -1,4 +1,4 @@
-local enabled_filetypes = { "typescript", "javascript", "json", "lua" }
+local enabled_filetypes = { "typescript", "javascript", "json", "lua", "astro", "css", "scss" }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   command = "FormatWriteLock",
