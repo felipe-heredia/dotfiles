@@ -2,16 +2,15 @@
 set -e
 
 PROGRAMAS_PARA_INSTALAR=(
+  bluez
+  bluez-utils
+
   git
   keepassxc
   nextcloud-client
-  telegram-desktop
-  discord
   flameshot
   firefox
   alacritty
-  dbeaver
-  gnome-boxes
   neovim
   zsh
   curl
@@ -19,15 +18,20 @@ PROGRAMAS_PARA_INSTALAR=(
   fuse
   okular
   pidgin
+  pidgin-otr
   qbittorrent
-  steam
   veracrypt
-  exa
-  btm
+  eza
+  bottom
   bandwhich
-  zathura
-  zathura-pdf-mupdf
-  cronie
+  starship
+  fzf
+  tmux
+  gnucash
+  tor
+  torbrowser-launcher
+  fd
+  zoxide
 )
 
 ## Atualizando Sistema ##
@@ -54,29 +58,24 @@ done
 YAY_PROGRAMAS=(
   nvm
   spotify
-  insomnia-bin
   ttf-jetbrains-mono
-  nerd-fonts-complete
+  nerd-fonts-git
   ttf-roboto
   ttf-poppins
   stremio-beta
   grml-zsh-config
-  zoho-mail-desktop
-  visual-studio-code-bin
-  brave-beta-bin
-  legendary
-  dxvk-bin
   minecraft-launcher
 )
 
 for programa in ${YAY_PROGRAMAS[@]}; do
   echo
   if ! sudo pacman -Q $programa; then # Só instala se já não estiver instalado
-    yay -S "$programa"
+    yay -S "$programa" --noconfirm
   else
     echo "[INSTALADO] - $programa"
   fi
 done
+
 ## Configurando dotfiles
 
 ## Configurando ZSH
@@ -85,10 +84,7 @@ done
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Instalando zinit
-sh -c "$(curl -fsSL https://git.io/zinit-install)"
-
-# Instalando spaceship-prompt
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 ## Instalando Wallpapers ##
 git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
