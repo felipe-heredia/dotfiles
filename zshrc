@@ -1,4 +1,6 @@
+prompt off
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 ZSH_CONFIG_FOLDER="$HOME/.config/zsh"
 
