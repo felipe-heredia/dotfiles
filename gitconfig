@@ -16,8 +16,18 @@
 [pull]
   rebase = false
 
-[url "git@github.com:"]
-	insteadOf = "https://github.com/"
+[diff]
+  tool = difftastic
+  external = difft
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
 
 [alias]
   ci = commit -S
@@ -76,7 +86,3 @@
 
 [color "sh"]
     branch = yellow
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false

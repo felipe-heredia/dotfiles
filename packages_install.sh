@@ -32,6 +32,7 @@ PROGRAMAS_PARA_INSTALAR=(
   torbrowser-launcher
   fd
   zoxide
+  difftastic
 )
 
 ## Atualizando Sistema ##
