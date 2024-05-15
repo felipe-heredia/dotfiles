@@ -6,5 +6,6 @@ return {
   h = { ":nohlsearch<CR>", "No Highlight" },
   f = {
     name = "Find",
+    f = { ":let @+=@%", "Get file name" }
   },
 }

@@ -13,3 +13,7 @@ vim.api.nvim_exec(
   ),
   false
 )
+
+vim.cmd([[
+  hi NotifyBackground guibg = #000000
+]])
