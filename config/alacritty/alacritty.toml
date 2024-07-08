@@ -1,6 +1,7 @@
 import = [
   "~/.config/alacritty/fonts.toml",
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/catppuccin-mocha.toml",
+  "~/.config/alacritty/catppuccin-latte.toml"
 ]
 live_config_reload = true
 
