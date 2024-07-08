@@ -7,11 +7,12 @@ alias aliasconf="$VIEDITOR ~/.zsh-aliases"
 
 # ls
 
-alias ls="eza --icons"
-alias l='eza -lh --icons'
-alias ll='eza -lah --icons'
-alias la='eza -an --icons'
-alias lsgi="eza -lha --git-ignore --icons"
+alias ls='eza --icons'
+alias l='ls -lh'
+alias ll='ls -lah'
+alias la='ls -an'
+alias lt='ls --tree'
+alias lsgi='ls -lha --git-ignore'
 
 # git
 
