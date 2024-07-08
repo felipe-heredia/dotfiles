@@ -15,6 +15,14 @@ return {
             filter = { event = "notify", find = "No information available" },
             opts = { skip = true },
           },
+          {
+            filter = {
+              event = "msg_show",
+              kind = "",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
         },
         presets = {
           bottom_search = true,
