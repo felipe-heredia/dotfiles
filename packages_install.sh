@@ -6,33 +6,38 @@ PROGRAMAS_PARA_INSTALAR=(
   bluez-utils
 
   git
+  alacritty
+  neovim
+  tmux
+  rust
+  difftastic
+  postgresql
+  docker
+  docker-compose
+
+  zsh
+  starship
+  eza
+  curl
+  fd
+  zoxide
+
   keepassxc
   nextcloud-client
   flameshot
   firefox
-  alacritty
-  neovim
-  zsh
-  curl
-  rust
   fuse
   okular
   pidgin
   pidgin-otr
   qbittorrent
   veracrypt
-  eza
   bottom
   bandwhich
-  starship
   fzf
-  tmux
   gnucash
   tor
   torbrowser-launcher
-  fd
-  zoxide
-  difftastic
 )
 
 ## Atualizando Sistema ##
@@ -58,7 +63,7 @@ done
 
 YAY_PROGRAMAS=(
   nvm
-  spotify
+  # spotify
   ttf-jetbrains-mono
   nerd-fonts-git
   ttf-roboto
