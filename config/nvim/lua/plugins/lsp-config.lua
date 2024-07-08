@@ -35,21 +35,40 @@ return {
         },
       })
     end,
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "tsserver",
+        "prismals",
+        "gopls",
+      },
+    },
   },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver" },
-      })
-    end,
-  },
+  { "williamboman/mason-lspconfig.nvim" },
   {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
+      local util = require("lspconfig/util")
+
       lspconfig.lua_ls.setup({})
       lspconfig.tsserver.setup({})
+      lspconfig.prismals.setup({})
+
+      lspconfig.gopls.setup({
+        cmd = { "gopls" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        rootdir = util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+              unusedparams = true,
+            },
+          },
+        },
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

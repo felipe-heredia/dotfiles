@@ -6,6 +6,16 @@ return {
   h = { ":nohlsearch<CR>", "No Highlight" },
   f = {
     name = "Find",
-    f = { ":let @+=@%", "Get file name" }
+    f = { ":let @+=@%", "Get file name" },
+  },
+  a = {
+    name = "Add",
+    t = {
+      name = "GoTag",
+      j = {
+        "<cmd> GoTagAdd json <CR>",
+        "Add json struct tags",
+      },
+    },
   },
 }
