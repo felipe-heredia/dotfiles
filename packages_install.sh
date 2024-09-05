@@ -7,6 +7,12 @@ sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://b
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
 PROGRAMAS_PARA_INSTALAR=(
+  tmux
+  difftastic
+  starship
+  eza
+  fd
+  zoxide
   git
   keepassxc
   flameshot
@@ -26,8 +32,6 @@ PROGRAMAS_PARA_INSTALAR=(
 )
 
 PPAS=(
-  neovim-ppa/stable
-  ppa:rictz/docky
 )
 
 ## Atualizando Sistema ##

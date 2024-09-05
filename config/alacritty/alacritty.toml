@@ -2,7 +2,7 @@ import = ["~/.config/alacritty/fonts.toml", "~/.config/alacritty/tokyonight_stor
 live_config_reload = true
 
 [window]
-opacity = 0.95
+opacity = 1
 
 [window.padding]
 x = 18

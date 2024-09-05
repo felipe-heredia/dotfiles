@@ -4,8 +4,10 @@ YARN_BIN="$HOME/.yarn/bin"
 CARGO_BIN="$HOME/.cargo/bin"
 LOCAL_BIN="$HOME/.local/bin"
 GO_BIN="/usr/local/go/bin/"
+DIFFT_BIN="/usr/local/difft"
 
-export PATH="$PATH:/$YARN_BIN:/$CARGO_BIN:/$LOCAL_BIN:/$GO_BIN:/$PNPM_HOME"
+export PATH="$PATH:/$YARN_BIN:/$CARGO_BIN:/$LOCAL_BIN:/$GO_BIN:/$PNPM_HOME:/$DIFFT_BIN"
+
 . "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"

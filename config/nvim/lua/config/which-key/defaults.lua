@@ -7,4 +7,8 @@ return {
   f = {
     name = "Find",
   },
+  p = {
+    ":lua print(Get_current_directory())<CR>",
+    "Show file PATH",
+  },
 }
