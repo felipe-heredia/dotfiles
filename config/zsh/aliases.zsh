@@ -66,6 +66,7 @@ alias p="pgrep"
 alias filesize="du -sh * | sort -h"
 alias mkdir="mkdir -pv"
 alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
+alias inv='nvim $(fzf --preview="bat --color=always {}")'
 
 # docker
 
