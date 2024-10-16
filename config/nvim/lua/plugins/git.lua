@@ -28,7 +28,7 @@ return {
           ignore_whitespace = false,
           virt_text_priority = 100,
         },
-        current_line_blame_formatter = function(name, blame_info, opts)
+        current_line_blame_formatter = function(name, blame_info)
           if blame_info.author == name then
             blame_info.author = "You"
           end
@@ -64,9 +64,6 @@ return {
           relative = "cursor",
           row = 0,
           col = 1,
-        },
-        yadm = {
-          enable = false,
         },
       })
     end,
