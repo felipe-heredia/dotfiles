@@ -6,7 +6,6 @@ PROGRAMAS_PARA_INSTALAR=(
   bluez-utils
 
   git
-  alacritty
   neovim
   tmux
   rust
@@ -14,6 +13,7 @@ PROGRAMAS_PARA_INSTALAR=(
   postgresql
   docker
   docker-compose
+  go
 
   zsh
   starship
@@ -21,6 +21,8 @@ PROGRAMAS_PARA_INSTALAR=(
   curl
   fd
   zoxide
+  fzf
+  bottom
 
   keepassxc
   nextcloud-client
@@ -32,12 +34,14 @@ PROGRAMAS_PARA_INSTALAR=(
   pidgin-otr
   qbittorrent
   veracrypt
-  bottom
   bandwhich
-  fzf
   gnucash
   tor
   torbrowser-launcher
+  obsidian
+  ripgrep
+  whois
+  jre-openjdk
 )
 
 ## Atualizando Sistema ##
@@ -71,6 +75,7 @@ YAY_PROGRAMAS=(
   stremio-beta
   grml-zsh-config
   minecraft-launcher
+  proton-vpn-gtk-app
 )
 
 for programa in ${YAY_PROGRAMAS[@]}; do

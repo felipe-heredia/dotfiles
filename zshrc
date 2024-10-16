@@ -26,3 +26,4 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 nf
+### End of Zinit's installer chunk
