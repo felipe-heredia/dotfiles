@@ -14,6 +14,7 @@ PROGRAMAS_PARA_INSTALAR=(
   docker
   docker-compose
   go
+  less
 
   zsh
   starship
@@ -42,6 +43,8 @@ PROGRAMAS_PARA_INSTALAR=(
   ripgrep
   whois
   jre-openjdk
+
+  gimp
 )
 
 ## Atualizando Sistema ##
