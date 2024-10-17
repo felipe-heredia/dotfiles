@@ -28,3 +28,6 @@ vim.opt.updatetime = 50
 
 vim.opt.foldcolumn = "0"
 vim.opt.colorcolumn = "80"
+
+vim.opt.spell = true
+vim.opt.spelllang = "pt_br,en_us"
