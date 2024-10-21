@@ -4,4 +4,5 @@ require("config.functions")
 require("config.keymaps")
 require("config.autocmds")
 
+-- Colorscheme("catppuccin-latte")
 Colorscheme()

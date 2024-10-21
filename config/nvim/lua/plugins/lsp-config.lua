@@ -39,8 +39,6 @@ return {
           vim.lsp.buf.signature_help()
         end, opts)
       end)
-
-      lsp.setup()
     end,
   },
   {
