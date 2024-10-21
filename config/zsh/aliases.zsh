@@ -9,11 +9,12 @@ alias aliasconf="$VIEDITOR ~/.zsh_aliases"
 
 # ls
 
-alias ls="exa --icons"
-alias l='exa -lh --icons'
-alias ll='exa -lah --icons'
-alias la='exa -an --icons'
-alias lsgi="exa -lha --git-ignore --icons"
+alias ls='eza --icons'
+alias l='ls -lh'
+alias ll='ls -lah'
+alias la='ls -an'
+alias lt='ls --tree'
+alias lsgi='ls -lha --git-ignore'
 
 # git
 
@@ -75,9 +76,9 @@ alias dcdw="docker compose down"
 alias dclog="docker logs -f "
 
 
-function docker_migration_run () { docker exec "$1" npm run typeorm migration:run }
-function docker_migration_revert () { docker exec "$1" npm run typeorm migration:revert }
-function docker_migration () { docker exec "$1" npm run typeorm migration:generate --name $2 }
+function docker_migration_run () { docker compose exec "$1" npm run typeorm migration:run }
+function docker_migration_revert () { docker compose exec "$1" npm run typeorm migration:revert }
+function docker_migration () { docker compose exec "$1" npm run typeorm migration:generate --name $2 }
 
 alias dcmigrun="docker_migration_run"
 alias dcmigrev="docker_migration_revert"
