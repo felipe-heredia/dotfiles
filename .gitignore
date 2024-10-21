@@ -1,10 +1,10 @@
 # CONFIG
-.config/nvim/plugged
-.config/nvim/pack
-.config/nvim/.netrwhist
-.config/lvim/lazy-lock.json
-.config/nvim/lazy-lock.json
-.config/tmux/plugins
+config/nvim/plugged
+config/nvim/pack
+config/nvim/.netrwhist
+config/lvim/lazy-lock.json
+config/nvim/lazy-lock.json
+config/tmux/plugins
 
 # Ignore Lvim
 # Compiled Lua sources
