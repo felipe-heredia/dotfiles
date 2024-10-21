@@ -7,11 +7,10 @@ Format_astro = function()
   vim.cmd("set modifiable")
 end
 
-Get_current_directory = function()
-  local cwd = vim.fn.getcwd()
-  local current_file_directory = vim.fn.expand("%:p:h")
-  local pattern = "^" .. vim.fn.escape(cwd, "/") .. "/"
-  local substituted_directory = vim.fn.substitute(current_file_directory, pattern, "", "")
-  local result = substituted_directory:match("/([^/]+)/[^/]+$") or ""
-  return result
+function Colorscheme(color)
+  color = color or "catppuccin-mocha"
+  vim.cmd.colorscheme(color)
+
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end

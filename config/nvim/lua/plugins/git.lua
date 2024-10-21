@@ -28,7 +28,7 @@ return {
           ignore_whitespace = false,
           virt_text_priority = 100,
         },
-        current_line_blame_formatter = function(name, blame_info, opts)
+        current_line_blame_formatter = function(name, blame_info)
           if blame_info.author == name then
             blame_info.author = "You"
           end
@@ -38,11 +38,13 @@ return {
             text = blame_info.author
           else
             local date_time
-            if opts.relative_time then
-              date_time = require("gitsigns.util").get_relative_time(tonumber(blame_info["author_time"]))
-            else
-              date_time = os.date("%Y-%m-%d", tonumber(blame_info["author_time"]))
-            end
+
+            -- if opts.relative_time then
+            date_time = require("gitsigns.util").get_relative_time(tonumber(blame_info["author_time"]))
+            -- else
+            --   date_time = os.date("%Y-%m-%d", tonumber(blame_info["author_time"]))
+            -- end
+
             text = string.format("%s, %s - %s", blame_info.author, date_time, blame_info.summary)
           end
           return { { " " .. text, "GitSignsCurrentLineBlame" } }
@@ -62,9 +64,6 @@ return {
           relative = "cursor",
           row = 0,
           col = 1,
-        },
-        yadm = {
-          enable = false,
         },
       })
     end,
