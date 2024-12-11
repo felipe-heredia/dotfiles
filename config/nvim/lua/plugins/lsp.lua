@@ -1,5 +1,37 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
+        },
+      },
+    },
+    config = function()
+      local lspconfig = require("lspconfig")
+      local util = require("lspconfig/util")
+
+      lspconfig.lua_ls.setup({})
+      lspconfig.ts_ls.setup({})
+
+      lspconfig.gopls.setup({
+        cmd = { "gopls" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        rootdir = util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = { unusedparams = true },
+          },
+        },
+      })
+    end,
+  },
+  {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v4.x",
     config = function()
@@ -42,32 +74,6 @@ return {
     end,
   },
   {
-    "mhartington/formatter.nvim",
-    event = "VeryLazy",
-    config = function()
-      local formatter = require("formatter")
-
-      formatter.setup({
-        logging = true,
-        log_level = vim.log.levels.WARN,
-        filetype = {
-          javascript = {
-            require("formatter.filetypes.javascript").prettierd,
-          },
-          typescript = {
-            require("formatter.filetypes.typescript").prettierd,
-          },
-          lua = {
-            require("formatter.filetypes.lua").stylua,
-          },
-          ["*"] = {
-            require("formatter.filetypes.any").remove_trailing_whitespace,
-          },
-        },
-      })
-    end,
-  },
-  {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
@@ -80,31 +86,6 @@ return {
 
       mason_lspconfig.setup({
         ensure_installed = { "ts_ls", "gopls" },
-      })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-      local util = require("lspconfig/util")
-
-      lspconfig.lua_ls.setup({})
-      lspconfig.ts_ls.setup({})
-
-      lspconfig.gopls.setup({
-        cmd = { "gopls" },
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        rootdir = util.root_pattern("go.work", "go.mod", ".git"),
-        settings = {
-          gopls = {
-            completeUnimported = true,
-            usePlaceholders = true,
-            analyses = {
-              unusedparams = true,
-            },
-          },
-        },
       })
     end,
   },

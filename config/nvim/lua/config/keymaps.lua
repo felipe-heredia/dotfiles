@@ -1,11 +1,13 @@
 vim.keymap.set("n", "<leader>;", ":Alpha<CR>", { desc = "Dashboard" })
 
-vim.keymap.set("n", "<leader>p", '"_dP', { desc = "Paste without overwriting register" })
+vim.keymap.set("n", "<leader>P", '"_dP', { desc = "Paste without overwriting register" })
 vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete without overwriting register" })
 vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete selected without overwriting register" })
 
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank selection to system clipboard" })
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set("v", "<leader>p", '"+p', { desc = "Paste selection from system clipboard" })
 vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to system clipboard" })
 
 vim.keymap.set("n", "<leader>f", function()
@@ -28,6 +30,7 @@ vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "No Highlight" })
 vim.keymap.set("n", "<leader>e", ":Neotree filesystem toggle reveal float<CR>")
 vim.keymap.set("n", "<leader>gs", ":Neotree git_status toggle float<CR>")
 vim.keymap.set("n", "<leader>ga", ":lua Format_astro()<CR>", { desc = "Format astro file" })
+vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>")
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
