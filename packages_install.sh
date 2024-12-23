@@ -45,6 +45,7 @@ PROGRAMAS_PARA_INSTALAR=(
   jre-openjdk
 
   gimp
+  net-tools
 )
 
 ## Atualizando Sistema ##
