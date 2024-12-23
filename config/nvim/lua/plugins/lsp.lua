@@ -16,6 +16,7 @@ return {
 
       lspconfig.lua_ls.setup({})
       lspconfig.ts_ls.setup({})
+      lspconfig.astro.setup({})
 
       lspconfig.gopls.setup({
         cmd = { "gopls" },
@@ -60,9 +61,6 @@ return {
         end, opts)
         vim.keymap.set("n", "<leader>vca", function()
           vim.lsp.buf.code_action()
-        end, opts)
-        vim.keymap.set("n", "<leader>vrr", function()
-          vim.lsp.buf.references()
         end, opts)
         vim.keymap.set("n", "<leader>vrn", function()
           vim.lsp.buf.rename()

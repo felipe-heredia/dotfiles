@@ -2,7 +2,14 @@ return {
   { "tpope/vim-commentary" },
   { "ThePrimeagen/vim-be-good" },
   { "mattn/emmet-vim" },
-  { "wakatime/vim-wakatime", lazy = false },
+  { "wakatime/vim-wakatime",   lazy = false },
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
   {
     "ThePrimeagen/harpoon",
     config = function()
