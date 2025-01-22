@@ -3,10 +3,12 @@ path=$(pwd)
 
 # Home directory
 ln -sf $path/.gitconfig $HOME/.gitconfig
+ln -sf $path/.gitconfig.work $HOME/.gitconfig.work
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/zshenv $HOME/.zshenv
 ln -sf $path/.zsh_aliases $HOME/.zsh_aliases
 ln -sf $path/zshrc $HOME/.zshrc
+ln -sf $path/psqlrc $HOME/.psqlrc
 
 # Config directory
 
