@@ -2,7 +2,18 @@ return {
   { "tpope/vim-commentary" },
   { "ThePrimeagen/vim-be-good" },
   { "mattn/emmet-vim" },
-  { "wakatime/vim-wakatime", lazy = false },
+  { "wakatime/vim-wakatime",   lazy = false },
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
   {
     "ThePrimeagen/harpoon",
     config = function()
@@ -39,14 +50,6 @@ return {
     "mbbill/undotree",
     config = function()
       vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-    end,
-  },
-  {
-    "hedyhli/outline.nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>o", vim.cmd.Outline, { desc = "Toggle Outline" })
-
-      require("outline").setup()
     end,
   },
 }

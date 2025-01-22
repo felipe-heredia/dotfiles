@@ -7,8 +7,13 @@ Format_astro = function()
   vim.cmd("set modifiable")
 end
 
-function Colorscheme(color)
-  color = color or "catppuccin-mocha"
+function Colorscheme(theme)
+  local color = "catppuccin-mocha"
+
+  if theme == "light" then
+    color = "catppuccin-latte"
+  end
+
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
