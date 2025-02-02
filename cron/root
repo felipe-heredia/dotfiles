@@ -1,1 +1,0 @@
-30 */6 * * * /usr/bin/pacman -Syu --noconfirm

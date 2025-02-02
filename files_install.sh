@@ -13,8 +13,6 @@ ln -sf $path/psqlrc $HOME/.psqlrc
 config_directory="config"
 global_config_directory=".config"
 
-ln -sf $path/$config_directory/vimrc $HOME/.vimrc
-
 # Config directory
 [ ! -d $HOME/$global_config_directory ] && mkdir $HOME/$global_config_directory
 
@@ -34,9 +32,3 @@ ln -sf $path/$config_directory/zsh $HOME/$global_config_directory/zsh
 
 [ -d $HOME/$global_config_directory/tmux ] && rm -rf $HOME/$global_config_directory/tmux
 ln -sf $path/$config_directory/tmux $HOME/$global_config_directory/tmux
-
-# Var Directory
-#[ ! -d /var ] && sudo mkdir -p /var/spool/cron
-#[ ! -d /var/spool ] && sudo mkdir -p /var/spool/cron
-#[ -d /var/spool/cron ] && rm -rf /var/spool/cron
-#sudo ln -sf $path/cron /var/spool/cron
