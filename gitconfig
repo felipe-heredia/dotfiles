@@ -1,8 +1,3 @@
-[user]
-  email = felipe@felipesuri.com
-  name = felipe-heredia
-	signingkey = E18F168D39825FE20D9799501487322E19839002
-
 [init]
   defaultBranch = main
 
@@ -36,6 +31,8 @@
   cd = checkout develop
   cs = checkout sandbox
   cb = checkout -b
+  md = merge develop
+  ms = merge sandbox
   st = status -sb
   sf = show --name-only
   lg = log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30
@@ -44,9 +41,28 @@
   outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
   unstage = reset HEAD --
   undo = checkout --
-  rollback = reset --soft HEAD~1
+  rollback = reset --soft HEAD^
+  hardback = reset --hard HEAD^
   amend = !"f() { git commit --amend -m \"$1\"; git log --oneline -1; }; f"
 	d = difftool
+  staash = stash --all
+
+[user]
+  name = felipe-heredia
+  email = felipe@felipesuri.com
+	signingkey = E18F168D39825FE20D9799501487322E19839002
+
+[includeIf "gitdir:~/coding/work/"]
+  path = ~/.gitconfig.work
+
+[rerere]
+	enabled = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
 
 [gpg]
 	program = gpg
@@ -86,3 +102,4 @@
 
 [color "sh"]
     branch = yellow
+
