@@ -17,6 +17,7 @@ return {
       lspconfig.lua_ls.setup({})
       lspconfig.ts_ls.setup({})
       lspconfig.astro.setup({})
+      lspconfig.typos_lsp.setup({})
 
       lspconfig.gopls.setup({
         cmd = { "gopls" },
