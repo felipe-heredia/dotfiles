@@ -1,101 +1,108 @@
 #!/bin/bash
 set -e
 
-## Brave Browser
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+if grep -q "ID=arch" /etc/os-release; then
+  OS="arch"
+  PKG_MANAGER="sudo pacman -S --noconfirm"
+  AUR_HELPER="yay -S --noconfirm"
+elif grep -q "ID=ubuntu\|ID=debian\|ID=linuxmint" /etc/os-release; then
+  OS="debian"
+  PKG_MANAGER="sudo apt install -y"
+else
+  echo "Unsupported OS"
+  exit 1
+fi
 
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-PROGRAMAS_PARA_INSTALAR=(
-  tmux
-  difftastic
-  starship
-  eza
-  fd
-  zoxide
-  git
-  keepassxc
-  flameshot
-  firefox
-  neovim
-  zsh
-  curl
-  fonts-roboto
-  exa
-  neovim
-  python3-pip
-  curl
-  brave-browser
-  plank
-  postgresql
-  postgresql-client
+COMMON_PROGRAMS=(
+  bluez bluez-utils
+  git neovim tmux difftastic starship eza fd zoxide
+  docker docker-compose python3-pip less fzf bottom
+  keepassxc flameshot firefox curl
+  postgresql rust go 
 )
 
-PPAS=(
-)
+if [ "$OS" == "debian" ]; then
+  OS_PROGRAMS=(plank postgresql-client fonts-roboto)
+  sudo apt update && sudo apt upgrade -y
+elif [ "$OS" == "arch" ]; then
+  sudo pacman -Syu --noconfirm
+fi
 
-## Atualizando Sistema ##
-sudo apt update && sudo apt upgrade -y
+for pkg in $COMMON_PROGRAMS $OS_PROGRAMS; do
+  echo "Installing: $pkg"
 
-for nome_do_ppa in "${PPAS[@]}"; do
-    sudo add-apt-repository "$nome_do_ppa" -y
-done
-
-sudo apt update
-
-for nome_do_programa in "${PROGRAMAS_PARA_INSTALAR[@]}"; do
-    echo
-    if ! dpkg -s "$nome_do_programa" >/dev/null 2>&1; then
-        sudo apt-get install "$nome_do_programa" -y
+  if [ "$OS" == "debian" ]; then
+    if ! dpkg -s "$pkg" >/dev/null 2>&1; then
+      $PKG_MANAGER "$pkg"
     else
-        echo "[INSTALADO] - $nome_do_programa"
+      echo "[INSTALLED] - $pkg"
+    fi
+    elif [ "$OS" == "arch" ]; then
+      if ! pacman -Q "$pkg" >/dev/null 2>&1; then
+        $PKG_MANAGER "$pkg"
+      else
+        echo "[INSTALLED] - $pkg"
+      fi
     fi
 done
 
-PROGRAMAS_FLATPAK=(
-  md.obsidian.Obsidian
-  com.spotify.Client
-  io.dbeaver.DBeaverCommunity
-)
+if [ "$OS" == "debian" ]; then
+  FLATPAK_PROGRAMS=(
+    md.obsidian.Obsidian com.spotify.Client io.dbeaver.DBeaverCommunity
+  )
 
-for nome_do_programa in "${PROGRAMAS_FLATPAK[@]}"; do
-    echo
-    if ! flatpak info "$nome_do_programa" >/dev/null 2>&1; then
-        flatpak install "$nome_do_programa" -y
+  for flatpak_pkg in "${FLATPAK_PROGRAMS[@]}"; do
+    if ! flatpak info "$flatpak_pkg" >/dev/null 2>&1; then
+      flatpak install "$flatpak_pkg" -y
     else
-        echo "[FLATPAK INSTALADO] - $nome_do_programa"
+      echo "[FLATPAK INSTALLED] - $flatpak_pkg"
     fi
-done
+  done
+fi
 
-## Instalando nvm
+if [ "$OS" == "arch" ]; then
+  AUR_PROGRAMS=(
+    nvm ttf-jetbrains-mono nerd-fonts-git ttf-roboto ttf-poppins
+    stremio-beta grml-zsh-config minecraft-launcher proton-vpn-gtk-app
+  )
 
-[ ! -d $HOME/.nvm ] && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  for aur_pkg in "${AUR_PROGRAMS[@]}"; do
+    if ! pacman -Q "$aur_pkg" >/dev/null 2>&1; then
+      $AUR_HELPER "$aur_pkg"
+    else
+      echo "[AUR INSTALLED] - $aur_pkg"
+    fi
+  done
+fi
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+if [ ! -d "$HOME/.nvm" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+fi
 
-## Configurando ZSH
+# Install Oh-My-Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
-# Instalando Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install Oh-My-Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
-# Instalando zinit
-sh -c "$(curl -fsSL https://git.io/zinit-install)"
+# Install Zinit
+if [ ! -d "$HOME/.zinit" ]; then
+  bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+fi
 
-## Instalando Wallpapers ##
-[ ! -d $HOME/Pictures/wallpapers ] && mkdir git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
+# Install Rust
+if ! command -v rustc >/dev/null 2>&1; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
-## Rust
+# Install Nerd Fonts
+if [ "$OS" == "debian" ] &&  [ ! -d nerd-fonts ]; then
+    git clone https://github.com/ryanoasis/nerd-fonts.git
+    ./nerd-fonts/install.sh
+fi
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-## Instalando Lvim
-
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-
-## Nerd Fonts
-path=$(pwd)
-
-if [ ! -d $path/nerd-fonts ] && git clone https://github.com/ryanoasis/nerd-fonts.git
-
-./nerd-fonts/install.sh
+echo "Setup complete!"

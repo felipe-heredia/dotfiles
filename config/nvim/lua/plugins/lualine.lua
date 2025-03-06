@@ -7,7 +7,8 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "iceberg_light",
+        -- theme = "iceberg_light",
+        theme = "catppuccin",
         globalstatus = true,
         icons_enabled = true,
         component_separators = { left = "|", right = "|" },
@@ -15,6 +16,7 @@ return {
         disabled_filetypes = {
           statusline = {
             "alpha",
+            "alfa-nvim",
             "help",
             "neo-tree",
             "Trouble",
@@ -24,8 +26,8 @@ return {
         },
       },
       sections = {
-        lualine_a = { "fancy_mode" },
-        lualine_b = { "fancy_branch", "fancy_diff" },
+        lualine_a = {},
+        lualine_b = { "fancy_branch", },
         lualine_c = {
           {
             "filename",
@@ -50,8 +52,13 @@ return {
         },
       },
       inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
         lualine_c = { "filename" },
+        lualine_y = {},
+        lualine_z = {},
       },
+      tabline = {},
       extensions = { "neo-tree", "lazy" },
     })
   end,

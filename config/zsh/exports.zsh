@@ -1,4 +1,4 @@
-_distro=$(awk '/^ID=/' /etc/os-release | awk -F'=' '{ print tolower($2) }')
+_distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 
 # Checks the device based if a power-suppy is present or not
 if [ -d "/sys/class/power_supply/BAT0" ]; then
@@ -30,13 +30,19 @@ case $_distro in
 *devuan*) ICON="" ;;
 *manjaro*) ICON="" ;;
 *rhel*) ICON="" ;;
-*fedora*) ICON="" ;;
-*slackware*) ICON="" ;;
-*linuxmint*) ICON="" ;;
-*alpine*) ICON="" ;;
 *macos*) ICON="" ;;
 *) ICON="󰌽" ;;
 esac
 
 export STARSHIP_DISTRO="$ICON"
 export STARSHIP_DEVICE="$DEVICE"
+
+# pnpm
+export PNPM_HOME="/home/felipeheredia/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+source /usr/share/nvm/init-nvm.sh

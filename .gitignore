@@ -2,7 +2,6 @@
 config/nvim/plugged
 config/nvim/pack
 config/nvim/.netrwhist
-config/lvim/lazy-lock.json
 config/nvim/lazy-lock.json
 config/tmux/plugins
 
@@ -54,3 +53,6 @@ plugin/
 spell/en.utf-8.add.spl
 
 yay
+
+# Tmux
+config/tmux/plugins/*

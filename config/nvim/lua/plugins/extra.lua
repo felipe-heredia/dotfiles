@@ -5,14 +5,10 @@ return {
   { "wakatime/vim-wakatime",   lazy = false },
   {
     "stevearc/oil.nvim",
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
     ---@module 'oil'
     ---@type oil.SetupOpts
-    opts = {
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    opts = { view_options = { show_hidden = true } },
   },
   {
     "ThePrimeagen/harpoon",

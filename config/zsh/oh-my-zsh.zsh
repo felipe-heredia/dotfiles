@@ -1,4 +1,3 @@
-
 export ZSH=$HOME/.oh-my-zsh
 
 zstyle ':omz:update' mode auto
@@ -10,6 +9,7 @@ plugins=(
   npm
   docker
   docker-compose
+  nvm
   web-search
   sudo
   copypath
@@ -18,6 +18,7 @@ plugins=(
   history
   ubuntu
   tmux
+  dnf
 )
 
 zshcache_time="$(date +%s%N)"
