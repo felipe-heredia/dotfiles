@@ -1,14 +1,13 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = {
-    "meuter/lualine-so-fancy.nvim",
-  },
+  dependencies = { "meuter/lualine-so-fancy.nvim" },
   enabled = true,
   lazy = false,
   event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
     require("lualine").setup({
       options = {
+        -- theme = "iceberg_light",
         theme = "catppuccin",
         globalstatus = true,
         icons_enabled = true,
@@ -16,6 +15,7 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = {
+            "alpha",
             "alfa-nvim",
             "help",
             "neo-tree",
@@ -23,34 +23,33 @@ return {
             "spectre_panel",
             "toggleterm",
           },
-          winbar = {},
         },
       },
       sections = {
         lualine_a = {},
-        lualine_b = {
-          "fancy_branch",
-        },
+        lualine_b = { "fancy_branch" },
         lualine_c = {
           {
             "filename",
-            path = 1, -- 2 for full path
+            path = 1,
             symbols = {
               modified = "  ",
               readonly = "  ",
               unnamed = "  ",
             },
           },
-          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
-          { "fancy_searchcount" },
         },
         lualine_x = {
+          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
+          "fancy_macro",
+          "fancy_searchcount",
+        },
+        lualine_y = {
           "fancy_lsp_servers",
-          "fancy_diff",
+        },
+        lualine_z = {
           "progress",
         },
-        lualine_y = {},
-        lualine_z = {},
       },
       inactive_sections = {
         lualine_a = {},

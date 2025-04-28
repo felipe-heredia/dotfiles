@@ -1,105 +1,108 @@
 #!/bin/bash
 set -e
 
-PROGRAMAS_PARA_INSTALAR=(
-  bluez
-  bluez-utils
+if grep -q "ID=arch" /etc/os-release; then
+  OS="arch"
+  PKG_MANAGER="sudo pacman -S --noconfirm"
+  AUR_HELPER="yay -S --noconfirm"
+elif grep -q "ID=ubuntu\|ID=debian\|ID=linuxmint" /etc/os-release; then
+  OS="debian"
+  PKG_MANAGER="sudo apt install -y"
+else
+  echo "Unsupported OS"
+  exit 1
+fi
 
-  git
-  neovim
-  tmux
-  rust
-  difftastic
-  postgresql
-  docker
-  docker-compose
-  go
-  less
-
-  zsh
-  starship
-  eza
-  curl
-  fd
-  zoxide
-  fzf
-  bottom
-
-  keepassxc
-  nextcloud-client
-  flameshot
-  firefox
-  fuse
-  okular
-  pidgin
-  pidgin-otr
-  qbittorrent
-  veracrypt
-  bandwhich
-  gnucash
-  tor
-  torbrowser-launcher
-  obsidian
-  ripgrep
-  whois
-  jre-openjdk
-
-  gimp
-  net-tools
+COMMON_PROGRAMS=(
+  bluez bluez-utils
+  git neovim tmux difftastic starship eza fd zoxide
+  docker docker-compose python3-pip less fzf bottom
+  keepassxc flameshot firefox curl
+  postgresql rust go 
 )
 
-## Atualizando Sistema ##
-sudo pacman -Syu --noconfirm
+if [ "$OS" == "debian" ]; then
+  OS_PROGRAMS=(plank postgresql-client fonts-roboto)
+  sudo apt update && sudo apt upgrade -y
+elif [ "$OS" == "arch" ]; then
+  sudo pacman -Syu --noconfirm
+fi
 
-## Adicionando Suporte ao AUR ##
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+for pkg in $COMMON_PROGRAMS $OS_PROGRAMS; do
+  echo "Installing: $pkg"
 
-## Instalar programas
-for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  echo
-  if ! sudo pacman -Q $nome_do_programa; then # Só instala se já não estiver instalado
-    sudo pacman -S "$nome_do_programa" --noconfirm
-  else
-    echo "[INSTALADO] - $nome_do_programa"
-  fi
+  if [ "$OS" == "debian" ]; then
+    if ! dpkg -s "$pkg" >/dev/null 2>&1; then
+      $PKG_MANAGER "$pkg"
+    else
+      echo "[INSTALLED] - $pkg"
+    fi
+    elif [ "$OS" == "arch" ]; then
+      if ! pacman -Q "$pkg" >/dev/null 2>&1; then
+        $PKG_MANAGER "$pkg"
+      else
+        echo "[INSTALLED] - $pkg"
+      fi
+    fi
 done
 
+if [ "$OS" == "debian" ]; then
+  FLATPAK_PROGRAMS=(
+    md.obsidian.Obsidian com.spotify.Client io.dbeaver.DBeaverCommunity
+  )
 
-## Instalndo ZSH
+  for flatpak_pkg in "${FLATPAK_PROGRAMS[@]}"; do
+    if ! flatpak info "$flatpak_pkg" >/dev/null 2>&1; then
+      flatpak install "$flatpak_pkg" -y
+    else
+      echo "[FLATPAK INSTALLED] - $flatpak_pkg"
+    fi
+  done
+fi
 
-## Instalando Pacotes yay ##
+if [ "$OS" == "arch" ]; then
+  AUR_PROGRAMS=(
+    nvm ttf-jetbrains-mono nerd-fonts-git ttf-roboto ttf-poppins
+    stremio-beta grml-zsh-config minecraft-launcher proton-vpn-gtk-app
+  )
 
-YAY_PROGRAMAS=(
-  nvm
-  # spotify
-  ttf-jetbrains-mono
-  nerd-fonts-git
-  ttf-roboto
-  ttf-poppins
-  stremio-beta
-  grml-zsh-config
-  minecraft-launcher
-  proton-vpn-gtk-app
-)
+  for aur_pkg in "${AUR_PROGRAMS[@]}"; do
+    if ! pacman -Q "$aur_pkg" >/dev/null 2>&1; then
+      $AUR_HELPER "$aur_pkg"
+    else
+      echo "[AUR INSTALLED] - $aur_pkg"
+    fi
+  done
+fi
 
-for programa in ${YAY_PROGRAMAS[@]}; do
-  echo
-  if ! sudo pacman -Q $programa; then # Só instala se já não estiver instalado
-    yay -S "$programa" --noconfirm
-  else
-    echo "[INSTALADO] - $programa"
-  fi
-done
+if [ ! -d "$HOME/.nvm" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+fi
 
-## Configurando dotfiles
+# Install Oh-My-Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
-## Configurando ZSH
+# Install Oh-My-Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
-# Instalando Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install Zinit
+if [ ! -d "$HOME/.zinit" ]; then
+  bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+fi
 
-# Instalando zinit
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+# Install Rust
+if ! command -v rustc >/dev/null 2>&1; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
-## Instalando Wallpapers ##
-git clone https://gitlab.com/felipesuri/wallpapers.git ~/Pictures/wallpapers
+# Install Nerd Fonts
+if [ "$OS" == "debian" ] &&  [ ! -d nerd-fonts ]; then
+    git clone https://github.com/ryanoasis/nerd-fonts.git
+    ./nerd-fonts/install.sh
+fi
+
+echo "Setup complete!"

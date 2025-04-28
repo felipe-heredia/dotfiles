@@ -7,6 +7,8 @@ plugins=(
   git
   node
   npm
+  docker
+  docker-compose
   nvm
   web-search
   sudo
@@ -14,6 +16,8 @@ plugins=(
   copyfile
   copybuffer
   history
+  ubuntu
+  tmux
   dnf
 )
 

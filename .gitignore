@@ -3,6 +3,7 @@ config/nvim/plugged
 config/nvim/pack
 config/nvim/.netrwhist
 config/nvim/lazy-lock.json
+config/tmux/plugins
 
 # Ignore Lvim
 # Compiled Lua sources

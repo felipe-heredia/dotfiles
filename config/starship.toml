@@ -17,6 +17,13 @@ palette = "thanos"
   supernova = "#F8F8F0"
   mind = "#FFE900"
 
+[palettes.tokyonight]
+  magneta = "#bb9af7"
+  red = "#f7768e"
+  yellow = "#e0af68"
+  green = "#9ece6a"
+  bermuda = "#73daca"
+  charlote = "#b4f9f8"
 
 # Drop ugly default prompt characters
 [character]
@@ -74,18 +81,13 @@ palette = "thanos"
   untracked = "  "
   ahead = " ⇡${count}"
   diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
-  behind = " ⇣${count}"
+  behind = " ⇣${count}(red)"
   stashed = " "
   modified = "  "
-  staged = '[ 󱅃 \($count\)](green)'
+  staged = '[ 󱅃 \($count\)](yellow)'
   renamed = "  "
   deleted = "  "
 
-
-# Shows kubernetes context and namespace
-[kubernetes]
-  format = 'via [󰠳 $context\($namespace\)](bold vision) '
-  disabled = false
 
 # Shows localip for ssh-connections
 [localip]

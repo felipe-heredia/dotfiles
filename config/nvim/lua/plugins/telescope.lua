@@ -22,7 +22,7 @@ return {
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope Help" })
       vim.keymap.set("n", "<leader>ps", builtin.colorscheme, { desc = "Colorscheme" })
       vim.keymap.set("n", "<leader>fc", find_config_files, { desc = "Find in config" })
-
+      vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "Find document symbols" })
       vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, { desc = "Find references" })
 
       telescope.setup({

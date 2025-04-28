@@ -3,6 +3,10 @@ VIEDITOR="nvim"
 alias zshconfig="$VIEDITOR ~/.zshrc"
 alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
 alias gitconfig="$VIEDITOR ~/.gitconfig"
+alias aliasconf="$VIEDITOR ~/.zsh_aliases"
+alias zshconfig="$VIEDITOR ~/.zshrc"
+alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
+alias gitconfig="$VIEDITOR ~/.gitconfig"
 alias aliasconf="$VIEDITOR ~/.zsh-aliases"
 
 # ls
@@ -37,7 +41,7 @@ alias gvc='git verify-commit HEAD~1'
 alias gsb='git branch --no-contains=main --no-contains=develop'
 
 function git_branch_starts_clear () {
- local branches=$(gsb | grep "$1")
+  local branches=$(gsb | grep "$1")
 
   if [ -z "$branches" ]; then
     echo "No branches found starting with '$1'."
@@ -75,10 +79,10 @@ alias dcdw="docker compose down"
 alias dclog="docker logs -f "
 
 
-function docker_migration_run () { docker exec "$1" npm run typeorm migration:run }
-function docker_migration_revert () { docker exec "$1" npm run typeorm migration:revert }
-function docker_migration () { docker exec "$1" npm run typeorm migration:generate --name $2 }
+function docker_migration_run () { docker compose exec "$1" npm run typeorm migration:run }
+function docker_migration_revert () { docker compose exec "$1" npm run typeorm migration:revert }
+function docker_migration () { docker compose exec "$1" npm run typeorm migration:generate --name $2 }
 
 alias dcmigrun="docker_migration_run"
-alias dcmigrev="docker_migration_rev"
+alias dcmigrev="docker_migration_revert"
 alias dcmig="docker_migration"

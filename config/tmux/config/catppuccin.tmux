@@ -16,5 +16,7 @@ set -g @catppuccin_status_fill "icon"
 set -g @catppuccin_status_connect_separator "no"
 
 set -g @catppuccin_status_background "default"
+set -g @catppuccin_directory_text "#{pane_current_path}"
+set -g @catppuccin_date_time_text "%b %d %r"
 set -g @catppuccin_date_time_text "%b %d %H:%M"
 set -g @catppuccin_directory_text $cwd

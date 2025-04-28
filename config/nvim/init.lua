@@ -4,4 +4,4 @@ require("config.functions")
 require("config.keymaps")
 require("config.autocmds")
 
-Colorscheme()
+Colorscheme("light")

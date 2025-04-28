@@ -1,7 +1,7 @@
 general.import = [
   "~/.config/alacritty/fonts.toml",
-  "~/.config/alacritty/catppuccin-mocha.toml",
-  # "~/.config/alacritty/catppuccin-latte.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml",
+  "~/.config/alacritty/catppuccin-latte.toml"
 ]
 general.live_config_reload = true
 
@@ -15,3 +15,4 @@ y = 16
 [cursor.style]
 shape = "Block"
 blinking = "On"
+

@@ -22,13 +22,11 @@ vim.keymap.set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace word under cursor" }
 )
--- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "No Highlight" })
 
 vim.keymap.set("n", "<leader>e", ":e .<CR>", { desc = "Open Oil file explorer" })
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open Oil file explorer in the current file" })
--- vim.keymap.set("n", "<leader>gs", ":Neotree git_status toggle float<CR>")
 vim.keymap.set("n", "<leader>ga", ":lua Format_astro()<CR>", { desc = "Format astro file" })
 vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>")
 
@@ -45,5 +43,3 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected block up" }
 
 vim.keymap.set("n", "<M-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix entry and center" })
 vim.keymap.set("n", "<M-j>", "<cmd>cprev<CR>zz", { desc = "Previous quickfix entry and center" })
-
--- vim.keymap.set("n", "<C-w>", "<cmd>w<CR>", { desc = "Write file" })
