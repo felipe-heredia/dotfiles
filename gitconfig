@@ -50,6 +50,7 @@
   amend = !"f() { git commit --amend -m \"$1\"; git log --oneline -1; }; f"
 	d = difftool
   staash = stash --all
+  fp = "!git fetch && git pull"
 
 [user]
   name = felipe-heredia

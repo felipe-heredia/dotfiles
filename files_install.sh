@@ -20,9 +20,6 @@ GLOBAL_CONFIG_DIRECTORY=".config"
 [ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/alacritty ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/alacritty
 ln -sf $path/$CONFIG_DIRECTORY/alacritty $HOME/$GLOBAL_CONFIG_DIRECTORY/alacritty
 
-[ -d $HOME/.themes ] && rm -rf $HOME/.themes
-ln -sf $path/.themes $HOME/.themes
-
 [ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch
 ln -sf $path/$CONFIG_DIRECTORY/neofetch $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch
 
