@@ -17,9 +17,6 @@ return {
       lspconfig.lua_ls.setup({})
       lspconfig.ts_ls.setup({})
       lspconfig.astro.setup({})
-      lspconfig.typos_lsp.setup({
-        init_options = { diagnosticSeverity = "Hint" },
-      })
 
       lspconfig.gopls.setup({
         cmd = { "gopls" },
