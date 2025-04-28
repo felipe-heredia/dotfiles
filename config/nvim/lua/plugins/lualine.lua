@@ -27,7 +27,7 @@ return {
       },
       sections = {
         lualine_a = {},
-        lualine_b = { "fancy_branch", },
+        lualine_b = { "fancy_branch" },
         lualine_c = {
           {
             "filename",
@@ -45,10 +45,10 @@ return {
           "fancy_searchcount",
         },
         lualine_y = {
-          "progress",
+          "fancy_lsp_servers",
         },
         lualine_z = {
-          "fancy_lsp_servers",
+          "progress",
         },
       },
       inactive_sections = {
