@@ -1,3 +1,4 @@
+prompt off
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
@@ -25,3 +26,4 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 nf
+### End of Zinit's installer chunk
