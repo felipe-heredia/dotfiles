@@ -1,4 +1,7 @@
-prompt off
+if command -v prompt >/dev/null 2>&1; then
+  prompt off
+fi
+
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
