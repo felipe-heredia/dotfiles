@@ -30,3 +30,11 @@ bindkey '^n' history-search-forward
 
 nf
 ### End of Zinit's installer chunk
+
+# pnpm
+export PNPM_HOME="/home/felipeheredia/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

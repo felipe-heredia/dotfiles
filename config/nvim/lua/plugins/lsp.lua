@@ -83,6 +83,7 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup({
+        automatic_enable = false,
         ensure_installed = { "ts_ls", "gopls" },
       })
     end,

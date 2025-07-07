@@ -26,7 +26,7 @@ return {
         },
       },
       sections = {
-        lualine_a = {},
+        lualine_a = { "selectioncount" },
         lualine_b = { "fancy_branch" },
         lualine_c = {
           {
