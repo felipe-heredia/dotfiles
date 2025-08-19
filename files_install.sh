@@ -26,8 +26,8 @@ ln -sf $path/$CONFIG_DIRECTORY/neofetch $HOME/$GLOBAL_CONFIG_DIRECTORY/neofetch
 [ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/zsh ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/zsh
 ln -sf $path/$CONFIG_DIRECTORY/zsh $HOME/$GLOBAL_CONFIG_DIRECTORY/zsh
 
-[ -d $HOME/$global_config_directory/tmux ] && rm -rf $HOME/$global_config_directory/tmux
-ln -sf $path/$config_directory/tmux $HOME/$global_config_directory/tmux
+[ -d $HOME/$GLOBAL_CONFIG_DIRECTORY/tmux ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/tmux
+ln -sf $path/$CONFIG_DIRECTORY/tmux $HOME/$GLOBAL_CONFIG_DIRECTORY/tmux
 
 [ -d $HOME/$CONFIG_DIRECTORY/nvim ] && rm -rf $HOME/$GLOBAL_CONFIG_DIRECTORY/nvim
 ln -sf $path/$CONFIG_DIRECTORY/nvim $HOME/$GLOBAL_CONFIG_DIRECTORY/nvim
