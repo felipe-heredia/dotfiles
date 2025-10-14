@@ -1,3 +1,5 @@
+local functions = require("config.functions")
+
 vim.keymap.set("n", "<leader>;", ":Alpha<CR>", { desc = "Dashboard" })
 
 vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete without overwriting register" })
@@ -10,7 +12,7 @@ vim.keymap.set("v", "<leader>p", '"+p', { desc = "Paste selection from system cl
 vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to system clipboard" })
 
 vim.keymap.set("n", "<leader>f", function()
-  vim.lsp.buf.format()
+  functions.format(vim.api.nvim_get_current_buf())
 end, { desc = "Format file using LSP" })
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location list entry and center" })
@@ -27,7 +29,9 @@ vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "No Highlight" })
 
 vim.keymap.set("n", "<leader>e", ":e .<CR>", { desc = "Open Oil file explorer" })
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open Oil file explorer in the current file" })
-vim.keymap.set("n", "<leader>ga", ":lua Format_astro()<CR>", { desc = "Format astro file" })
+vim.keymap.set("n", "<leader>ga", function()
+  functions.format_astro()
+end, { desc = "Format astro file" })
 vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>")
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)

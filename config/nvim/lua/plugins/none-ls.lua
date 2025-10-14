@@ -5,6 +5,7 @@ return {
   },
   config = function()
     local null_ls = require("null-ls")
+    local functions = require("config.functions")
 
     null_ls.setup({
       on_attach = function(client, bufnr)
@@ -12,11 +13,7 @@ return {
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format({
-                async = false,
-                bufnr = bufnr,
-                filter = function(cl) return cl.name == "null-ls" end
-              })
+              functions.format(bufnr)
             end,
           })
         end
