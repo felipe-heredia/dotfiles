@@ -6,7 +6,10 @@ return {
       { "nvim-lua/plenary.nvim", branch = "master" },
     },
     build = "make tiktoken",
-    opts = {},
+    opts = {
+      model = "gemini-2.5-pro",
+      temperature = 0.5,
+    },
   },
   { "tpope/vim-commentary" },
   { "ThePrimeagen/vim-be-good" },

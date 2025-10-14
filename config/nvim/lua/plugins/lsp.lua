@@ -15,7 +15,12 @@ return {
       local util = require("lspconfig/util")
 
       lspconfig.lua_ls.setup({})
-      lspconfig.ts_ls.setup({})
+      lspconfig.ts_ls.setup({
+        server_capabilities = {
+          documentFormattingProvider = false,
+          documentRangeFormattingProvider = false,
+        },
+      })
       lspconfig.astro.setup({})
 
       lspconfig.gopls.setup({
