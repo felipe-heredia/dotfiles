@@ -7,9 +7,19 @@
 
 [push]
   default = current
+  autoSetupRemote = true
+  followTags = true
 
 [pull]
 	rebase = true
+
+[tag]
+  sort = version:refname
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 
 [diff]
   tool = difftastic
