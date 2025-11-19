@@ -22,6 +22,7 @@ return {
         },
       })
       lspconfig.astro.setup({})
+      lspconfig.phpactor.setup({})
 
       lspconfig.gopls.setup({
         cmd = { "gopls" },
