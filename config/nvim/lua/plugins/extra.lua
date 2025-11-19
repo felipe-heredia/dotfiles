@@ -14,7 +14,6 @@ return {
   { "tpope/vim-commentary" },
   { "ThePrimeagen/vim-be-good" },
   { "mattn/emmet-vim" },
-  -- { "wakatime/vim-wakatime",   lazy = false },
   {
     "stevearc/oil.nvim",
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
@@ -29,29 +28,19 @@ return {
       local ui = require("harpoon.ui")
 
       vim.keymap.set("n", "<leader>a", mark.add_file)
-      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-      vim.keymap.set("n", "<C-h>", function()
+      vim.keymap.set("n", "<leader>he", ui.toggle_quick_menu)
+      vim.keymap.set("n", "<leader>h1", function()
         ui.nav_file(1)
       end)
-      vim.keymap.set("n", "<C-t>", function()
+      vim.keymap.set("n", "<leader>h2", function()
         ui.nav_file(2)
       end)
-      vim.keymap.set("n", "<C-n>", function()
+      vim.keymap.set("n", "<leader>h3", function()
         ui.nav_file(3)
       end)
-      vim.keymap.set("n", "<C-s>", function()
+      vim.keymap.set("n", "<leader>h4", function()
         ui.nav_file(4)
       end)
-    end,
-  },
-  {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-    end,
-    build = function()
-      vim.cmd([[slient! GoInstallDeps]])
     end,
   },
   {
