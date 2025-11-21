@@ -11,31 +11,16 @@ return {
       },
     },
     config = function()
-      local lspconfig = require("lspconfig")
-      local util = require("lspconfig/util")
-
-      lspconfig.lua_ls.setup({})
-      lspconfig.ts_ls.setup({
+      vim.lsp.enable("ts_ls")
+      vim.lsp.config("lua_ls", {})
+      vim.lsp.config("ts_ls", {
         server_capabilities = {
           documentFormattingProvider = false,
           documentRangeFormattingProvider = false,
         },
       })
-      lspconfig.astro.setup({})
-      lspconfig.phpactor.setup({})
-
-      lspconfig.gopls.setup({
-        cmd = { "gopls" },
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        rootdir = util.root_pattern("go.work", "go.mod", ".git"),
-        settings = {
-          gopls = {
-            completeUnimported = true,
-            usePlaceholders = true,
-            analyses = { unusedparams = true },
-          },
-        },
-      })
+      vim.lsp.config("astro", {})
+      vim.lsp.config("phpactor", {})
     end,
   },
   {
@@ -92,12 +77,6 @@ return {
         automatic_enable = false,
         ensure_installed = { "ts_ls" },
       })
-    end,
-  },
-  {
-    "simrat39/symbols-outline.nvim",
-    config = function()
-      require("symbols-outline").setup()
     end,
   },
 }

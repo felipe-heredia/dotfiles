@@ -6,6 +6,7 @@ return {
 
       context.setup({
         enable = true,
+        max_lines = 5,
       })
     end,
   },
