@@ -9,16 +9,10 @@ plugins=(
   npm
   docker
   docker-compose
-  nvm
-  web-search
   sudo
-  copypath
-  copyfile
-  copybuffer
-  history
   ubuntu
   tmux
-  dnf
+  arch-linux
 )
 
 zshcache_time="$(date +%s%N)"

@@ -1,14 +1,3 @@
-VIEDITOR="nvim"
-
-alias zshconfig="$VIEDITOR ~/.zshrc"
-alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
-alias gitconfig="$VIEDITOR ~/.gitconfig"
-alias aliasconf="$VIEDITOR ~/.zsh_aliases"
-alias zshconfig="$VIEDITOR ~/.zshrc"
-alias ohmyzsh="$VIEDITOR ~/.oh-my-zsh"
-alias gitconfig="$VIEDITOR ~/.gitconfig"
-alias aliasconf="$VIEDITOR ~/.zsh-aliases"
-
 # ls
 
 alias ls='eza --icons'
@@ -86,3 +75,9 @@ function docker_migration () { docker compose exec "$1" npm run typeorm migratio
 alias dcmigrun="docker_migration_run"
 alias dcmigrev="docker_migration_revert"
 alias dcmig="docker_migration"
+
+# npm
+
+alias npm-major="npm version major --no-git-tag-version"
+alias npm-minor="npm version minor --no-git-tag-version"
+alias npm-patch="npm version patch --no-git-tag-version"
