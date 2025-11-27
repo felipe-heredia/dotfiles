@@ -12,7 +12,6 @@ plugins=(
   sudo
   ubuntu
   tmux
-  arch-linux
 )
 
 zshcache_time="$(date +%s%N)"

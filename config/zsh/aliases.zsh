@@ -7,6 +7,14 @@ alias la='ls -an'
 alias lt='ls --tree'
 alias lsgi='ls -lha --git-ignore'
 
+# vim
+
+alias v="$EDITOR"
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+alias nvim="$EDITOR"
+
+
 # git
 
 alias gcl='git clone'
@@ -49,8 +57,6 @@ alias gbc='git_branch_starts_clear'
 
 alias myip='curl -s https://checkip.amazonaws.com'
 alias myhistory="history | awk '{print \$2}' | sort | uniq -c | sort -rn | head -10"
-alias btm="btm --battery --mem_as_value"
-alias band="sudo bandwhich"
 alias reload="source ~/.zshrc"
 alias ..="cd .."
 alias nf="neofetch"
