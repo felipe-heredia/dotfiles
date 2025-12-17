@@ -31,3 +31,5 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.spell = true
 vim.opt.spelllang = "pt_br,en_us"
+
+vim.g.snacks_animate = true

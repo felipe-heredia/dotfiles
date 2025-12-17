@@ -48,3 +48,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected block up" }
 vim.keymap.set("n", "<M-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix entry and center" })
 vim.keymap.set("n", "<M-j>", "<cmd>cprev<CR>zz", { desc = "Previous quickfix entry and center" })
 vim.keymap.set("n", "cf", "<cmd> let @+ = expand('%:.')<CR>", { desc = "Copy file name" })
+
+vim.keymap.set("n", "<leader>gb", function()
+  Snacks.picker.git_log_line()
+end, { desc = "Git Blame Line" })
