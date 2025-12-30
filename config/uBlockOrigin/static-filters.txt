@@ -116,3 +116,19 @@ www.gazetadopovo.com.br##[class*="ads-sticky"]
 
 ! Hide Google Ads iframes (matches any ad iframe from this publisher)
 www.gazetadopovo.com.br##[id^="google_ads_iframe_/7601/gazeta_do_povo"]
+
+! ============================================================================
+! NSC TOTAL FILTERS
+! Website: https://www.nsctotal.com.br
+! Last Updated: 2025-12-30
+! Purpose: Remove paywall modals, ads, and subscription prompts
+! ============================================================================
+
+! Hide ads
+www.nsctotal.com.br##div.nsc-content-ads
+www.nsctotal.com.br##div[class^="ad "]
+www.nsctotal.com.br##div[class*=" ad "]
+
+! Hide ALL subscription banners
+www.nsctotal.com.br##[id="nsc-rrme-banner"]
+www.nsctotal.com.br##[id="floater_2"]
