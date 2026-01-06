@@ -43,6 +43,7 @@ youtube.com##ytd-rich-grid-row,#contents.ytd-rich-grid-row:style(display: conten
 youtube.com##ytd-rich-item-renderer:has(.yt-badge-shape__text:has-text(Só para membros))
 youtube.com##ytd-grid-video-renderer:has(.yt-badge-shape__text:has-text(Só para membros))
 youtube.com##ytd-video-renderer:has(.yt-badge-shape__text:has-text(Só para membros))
+youtube.com##yt-lockup-view-model:has(.yt-badge-shape__text:has-text(Só para membros))
 
 
 !!! MOBILE !!!
@@ -79,6 +80,12 @@ music.youtube.com##.html5-main-video.video-stream
 ! O Globo
 https://static.infoglobo.com.br/paywall/js/tiny.js
 oglobo.globo.com###pub-in-text-wrapper
+
+! ge globo
+
+ge.globo.com##[class*="content-ads"]
+ge.globo.com##[class*="ad-rail"]
+
 
 ! ============================================================================
 ! GAZETA DO POVO FILTERS
