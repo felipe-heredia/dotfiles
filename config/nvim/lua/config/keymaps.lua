@@ -26,6 +26,7 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "No Highlight" })
+vim.keymap.set("n", "<leader>cc", "<cmd>cclose<CR>", { desc = "Close quickfix" })
 
 vim.keymap.set("n", "<leader>e", ":e .<CR>", { desc = "Open Oil file explorer" })
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open Oil file explorer in the current file" })
@@ -36,6 +37,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>")
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist)
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })

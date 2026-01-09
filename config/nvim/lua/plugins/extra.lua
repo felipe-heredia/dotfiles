@@ -7,7 +7,7 @@ return {
     },
     build = "make tiktoken",
     opts = {
-      model = "gemini-3-pro",
+      model = "gemini-3-pro-preview",
       temperature = 0.5,
     },
   },

@@ -7,7 +7,6 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        -- theme = "iceberg_light",
         theme = "catppuccin",
         globalstatus = true,
         icons_enabled = true,
@@ -26,8 +25,12 @@ return {
         },
       },
       sections = {
-        lualine_a = { "selectioncount" },
-        lualine_b = { "fancy_branch" },
+        lualine_a = {
+          "selectioncount",
+        },
+        lualine_b = {
+          "fancy_branch",
+        },
         lualine_c = {
           {
             "filename",
@@ -40,7 +43,7 @@ return {
           },
         },
         lualine_x = {
-          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
+          { "fancy_diagnostics", symbols = { error = " ", warn = " ", info = " " } },
           "fancy_macro",
           "fancy_searchcount",
         },
