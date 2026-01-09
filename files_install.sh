@@ -9,6 +9,7 @@ ln -sf $path/.zsh_aliases $HOME/.zsh_aliases
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/zshrc $HOME/.zshrc
 ln -sf $path/psqlrc $HOME/.psqlrc
+ln -sf $path/bin/* $HOME/bin
 
 # Config directory
 
@@ -33,5 +34,3 @@ ln -sf $path/$CONFIG_DIRECTORY/tmux $HOME/$GLOBAL_CONFIG_DIRECTORY/tmux
 ln -sf $path/$CONFIG_DIRECTORY/nvim $HOME/$GLOBAL_CONFIG_DIRECTORY/nvim
 
 ln -sf $path/$CONFIG_DIRECTORY/starship.toml $HOME/$GLOBAL_CONFIG_DIRECTORY/starship.toml
-
-dconf load /org/cinnamon/ < cinnamon_desktop_backup

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "$1" == lofi ]; then
+  RADIO_URL="https://live.hunter.fm/lofi_low"
+elif [ "$1" == sertanejo ]; then
+  RADIO_URL="https://live.hunter.fm/sertanejo_stream"
+else
+  echo "Usage: $0 [lofi|sertanejo]"
+  exit 1
+fi
+
+exec mpv --really-quiet "$RADIO_URL"
