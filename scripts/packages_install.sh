@@ -14,6 +14,7 @@ else
 fi
 
 COMMON_PROGRAMS=(
+  stow
   bluez bluez-utils
   git neovim tmux difftastic starship eza fd zoxide
   docker docker-compose python3-pip less fzf bottom
