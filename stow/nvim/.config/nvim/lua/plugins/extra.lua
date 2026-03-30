@@ -14,6 +14,7 @@ return {
   { "tpope/vim-commentary" },
   { "ThePrimeagen/vim-be-good" },
   { "mattn/emmet-vim" },
+  { "wakatime/vim-wakatime", lazy = false },
   {
     "stevearc/oil.nvim",
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
