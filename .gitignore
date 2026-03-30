@@ -2,7 +2,7 @@
 stow/nvim/.config/plugged
 stow/nvim/.config/pack
 stow/nvim/.config/.netrwhist
-stow/nvim/.config/lazy-lock.json
+stow/nvim/.config/nvim/lazy-lock.json
 
 # Ignore Lvim
 # Compiled Lua sources

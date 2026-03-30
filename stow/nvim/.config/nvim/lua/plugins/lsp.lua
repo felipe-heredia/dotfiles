@@ -20,7 +20,9 @@ return {
         },
       })
       vim.lsp.config("astro", {})
+      vim.lsp.enable("astro")
       vim.lsp.config("phpactor", {})
+      vim.lsp.enable("phpactor")
     end,
   },
   {
@@ -41,14 +43,14 @@ return {
         vim.keymap.set("n", "<leader>vws", function()
           vim.lsp.buf.workspace_symbol()
         end, opts)
-        vim.keymap.set("n", "<leader>vd>", function()
-          vim.disgnostic.open_float()
+        vim.keymap.set("n", "<leader>vd", function()
+          vim.diagnostic.open_float()
         end, opts)
         vim.keymap.set("n", "[d", function()
-          vim.disgnostic.goto_next()
+          vim.diagnostic.goto_next()
         end, opts)
         vim.keymap.set("n", "]d", function()
-          vim.disgnostic.goto_prev()
+          vim.diagnostic.goto_prev()
         end, opts)
         vim.keymap.set("n", "<leader>vca", function()
           vim.lsp.buf.code_action()

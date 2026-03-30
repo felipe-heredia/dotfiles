@@ -33,3 +33,18 @@ vim.opt.spell = true
 vim.opt.spelllang = "pt_br,en_us"
 
 vim.g.snacks_animate = true
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
+
+-- Also ensure Neovim uses the system clipboard by default
+vim.opt.clipboard = "unnamedplus"
