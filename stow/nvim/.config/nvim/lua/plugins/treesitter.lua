@@ -1,19 +1,20 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.config").setup()
+      require("nvim-treesitter").setup({})
 
       -- Install parsers if missing
-      local installed = require("nvim-treesitter.config").get_installed()
-      local ensure = { "typescript", "javascript", "lua", "markdown", "astro" }
-      local to_install = vim.tbl_filter(function(lang)
-        return not vim.list_contains(installed, lang)
-      end, ensure)
-      if #to_install > 0 then
-        vim.cmd("TSInstall " .. table.concat(to_install, " "))
-      end
+      require("nvim-treesitter").install({ "typescript", "javascript", "lua", "markdown", "astro" })
+
+      -- Enable treesitter highlighting and indentation for all filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+        end,
+      })
     end,
   },
   {
